@@ -1,7 +1,6 @@
 {
   "name": "mailer",
   "version": "1.0.0",
-  "homepage": "/",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "yarn run build",
@@ -22,6 +21,8 @@
     "@material-ui/lab": "^4.0.0-alpha.49",
     "@material-ui/pickers": "^3.2.8",
     "@material-ui/styles": "^4.7.1",
+    "firebase": "^7.6.1",
+    "netlify-cli": "^2.61.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -29,8 +30,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-spring": "^8.0.27",
-    "react-transition-group": "^4.4.1",
-    "firebase": "^7.6.1"
+    "react-transition-group": "^4.4.1"
   },
   "browserslist": [
     "last 2 Chrome versions",
