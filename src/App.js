@@ -33,15 +33,12 @@ const App = () => {
       });
   };
 
-  console.log(LoggedInUserData);
-
-  console.log(process.env);
   return (
     <Box>
       {!LoggedInUserToken && !userExists && (
         <GoogleLogin
           clientId={
-            "219769076647-94cf9ig74i3tdnacrpla576p7t9j3lkt.apps.googleusercontent.com"
+            "219769076647-u2hnrh6j63ciq4dqi3kssb8uqe7rknub.apps.googleusercontent.com"
           }
           buttonText="Login"
           onSuccess={responseGoogle}
