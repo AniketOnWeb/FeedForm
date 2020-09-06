@@ -34,8 +34,8 @@ const App = () => {
   };
 
   console.log(LoggedInUserData);
-  console.log(JSON.parse(LoggedInUserData));
 
+  console.log(process.env);
   return (
     <Box>
       {!LoggedInUserToken && !userExists && (
