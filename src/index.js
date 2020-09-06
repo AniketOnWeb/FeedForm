@@ -8,6 +8,8 @@ import { CssBaseline } from "@material-ui/core";
 
 const styles = (theme) => ({
   "@global": {
+    "@font-face": "poppins",
+
     html: {
       fontSize: 10,
 
@@ -30,6 +32,7 @@ const styles = (theme) => ({
 
     body: {
       overflow: "auto",
+      fontFamily: "poppins",
       "&::-webkit-scrollbar": {
         width: "0",
       },
