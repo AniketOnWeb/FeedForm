@@ -33,6 +33,9 @@ const App = () => {
       });
   };
 
+  console.log(LoggedInUserData);
+  console.log(JSON.parse(LoggedInUserData));
+
   return (
     <Box>
       {!LoggedInUserToken && !userExists && (
@@ -45,10 +48,13 @@ const App = () => {
         />
       )}
       <Box>
-        {LoggedInUserData
-          ? JSON.parse(LoggedInUserData).name
+        {LoggedInUserData &&
+        LoggedInUserData !== undefined &&
+        LoggedInUserData !== "undefined" &&
+        LoggedInUserData !== null
+          ? JSON.parse(LoggedInUserData) && JSON.parse(LoggedInUserData).name
             ? JSON.parse(LoggedInUserData).name
-            : " "
+            : ""
           : ""}
       </Box>
       <Box>
