@@ -14,8 +14,6 @@ const App = () => {
 
   const responseGoogle = (response) => {
     console.log(response);
-    Authentication.save(response.accessToken);
-    Authentication.saveUserProfile(JSON.stringify(response.profileObj));
 
     db.collection("users")
       .get()
@@ -27,7 +25,9 @@ const App = () => {
             setuserExists(true);
           } else {
             firebase.register(response);
-            setuserExists(true);
+            Authentication.save(response.accessToken);
+            Authentication.saveUserProfile(JSON.stringify(response.profileObj));
+            setuserExists(false);
           }
         });
       });
