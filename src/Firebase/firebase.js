@@ -15,7 +15,7 @@ const config = {
   measurementId: "G-PRYGQVHN4Z",
 };
 
-class firebase {
+class Firebase {
   constructor() {
     app.initializeApp(config);
   }
@@ -70,4 +70,4 @@ class firebase {
   //   }
 }
 
-export default new firebase();
+export default new Firebase();

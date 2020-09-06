@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Button } from "@material-ui/core";
 import GoogleLogin from "react-google-login";
 import Authentication from "./Utils/Authentication";
-import firebase from "./Firebase/index.js";
+import Firebase from "./Firebase/firebase.js";
 import app from "firebase/app";
 
 const App = () => {
@@ -19,15 +19,13 @@ const App = () => {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          if (String(response.googleId) === String(doc.data().googleId)) {
-            // user already exists
-            console.log("user already exists");
-            setuserExists(true);
-          } else {
-            firebase.register(response);
+          if (String(response.googleId) !== String(doc.data().googleId)) {
+            Firebase.register(response);
             Authentication.save(response.accessToken);
             Authentication.saveUserProfile(JSON.stringify(response.profileObj));
             setuserExists(false);
+          } else {
+            setuserExists(true);
           }
         });
       });
@@ -42,7 +40,7 @@ const App = () => {
           }
           buttonText="Login"
           onSuccess={responseGoogle}
-          onFailure={responseGoogle}
+          // onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}
         />
       )}
