@@ -5,7 +5,7 @@ import "firebase/analytics";
 import "firebase/remote-config";
 
 const config = {
-  apiKey: process.env.REACT_APP_FIRESTORE_KEY,
+  apiKey: "AIzaSyBML1AirpSLDU3xsCHXy5ZdsjB_6qF_kek",
   authDomain: "feedform-d06f9.firebaseapp.com",
   databaseURL: "https://feedform-d06f9.firebaseio.com",
   projectId: "feedform-d06f9",

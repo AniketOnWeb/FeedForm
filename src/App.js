@@ -40,7 +40,9 @@ const App = () => {
     <Box>
       {!LoggedInUserToken && !userExists && (
         <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          clientId={
+            "219769076647-94cf9ig74i3tdnacrpla576p7t9j3lkt.apps.googleusercontent.com"
+          }
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
