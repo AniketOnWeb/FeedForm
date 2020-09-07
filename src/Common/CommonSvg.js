@@ -102,8 +102,8 @@ const CommonSvg = (props) => {
           y2="3.1774"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -113,8 +113,8 @@ const CommonSvg = (props) => {
           y2="28.8226"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint2_linear"
@@ -124,8 +124,8 @@ const CommonSvg = (props) => {
           y2="29.3063"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint3_linear"
@@ -135,8 +135,8 @@ const CommonSvg = (props) => {
           y2="7.2905"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint4_linear"
@@ -146,8 +146,8 @@ const CommonSvg = (props) => {
           y2="13.5808"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint5_linear"
@@ -157,8 +157,8 @@ const CommonSvg = (props) => {
           y2="30.0323"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint6_linear"
@@ -168,8 +168,8 @@ const CommonSvg = (props) => {
           y2="1.9678"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint7_linear"
@@ -179,8 +179,8 @@ const CommonSvg = (props) => {
           y2="18.9031"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
         <linearGradient
           id="paint8_linear"
@@ -190,8 +190,8 @@ const CommonSvg = (props) => {
           y2="14.7902"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08AEEA" />
-          <stop offset="1" stop-color="#20FF99" />
+          <stop stopColor="#08AEEA" />
+          <stop offset="1" stopColor="#20FF99" />
         </linearGradient>
       </defs>
     </svg>

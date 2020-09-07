@@ -42,6 +42,8 @@ const Hero = () => {
             Authentication.saveUserProfile(JSON.stringify(response.profileObj));
             setuserExists(false);
           } else {
+            Authentication.save(response.accessToken);
+            Authentication.saveUserProfile(JSON.stringify(response.profileObj));
             setuserExists(true);
           }
         });

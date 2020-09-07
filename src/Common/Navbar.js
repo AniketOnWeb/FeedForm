@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <Box padding="2.4rem" className={classes.navbarWrapper}>
       <Box display="flex" flexDirection="row" alignItems="center">
-        <CommonSvg type="logo" width="2rem" height="auto" />
+        <CommonSvg type="logo" width="2rem" />
         <Box ml=".8rem">
           <Typography className={classes.brandName}>FeedForm</Typography>
         </Box>

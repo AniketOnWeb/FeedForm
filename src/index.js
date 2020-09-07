@@ -70,11 +70,9 @@ const Main = withStyles(styles)(App);
 ReactDOM.render(
   <CssBaseline>
     <ThemeProvider theme={theme}>
-      <>
-        <StylesProvider>
-          <Main />
-        </StylesProvider>
-      </>
+      <StylesProvider>
+        <Main />
+      </StylesProvider>
     </ThemeProvider>
   </CssBaseline>,
   document.getElementById("root")
