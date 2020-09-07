@@ -36,6 +36,7 @@ const Hero = () => {
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           if (String(response.googleId) !== String(doc.data().googleId)) {
+            console.log(response);
             Firebase.register(response);
             Authentication.save(response.accessToken);
             Authentication.saveUserProfile(JSON.stringify(response.profileObj));
