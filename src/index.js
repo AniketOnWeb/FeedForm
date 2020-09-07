@@ -5,6 +5,7 @@ import { StylesProvider, ThemeProvider } from "@material-ui/styles";
 import { withStyles } from "@material-ui/core/styles";
 import theme from "./Utils/theme";
 import { CssBaseline } from "@material-ui/core";
+import "regenerator-runtime/runtime.js";
 
 const styles = (theme) => ({
   "@global": {
