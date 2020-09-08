@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box, CssBaseline } from "@material-ui/core";
 import React from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
@@ -11,32 +11,34 @@ const App = () => {
   const matches640 = useMediaQuery("(min-width:640px)");
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <CssBaseline>
       <Box
-        style={{
-          maxWidth: matches1280
-            ? "1280px"
-            : matches1024
-            ? "1024px"
-            : matches768
-            ? "768px"
-            : matches640
-            ? "640px"
-            : "",
-          width: "100%",
-        }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Navbar />
-        <Box>
-          <Hero />
+        <Box
+          style={{
+            maxWidth: matches1280
+              ? "1280px"
+              : matches1024
+              ? "1024px"
+              : matches768
+              ? "768px"
+              : matches640
+              ? "640px"
+              : "",
+            width: "100%",
+          }}
+        >
+          <Navbar />
+          <Box>
+            <Hero />
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </CssBaseline>
   );
 };
 

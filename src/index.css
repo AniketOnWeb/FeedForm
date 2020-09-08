@@ -39,3 +39,7 @@
   opacity: 1;
   transform: translateX(-450px);
 }
+
+p {
+  font-family: Poppins, sans-serif !important;
+}

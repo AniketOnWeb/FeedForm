@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useTheme,
   Box,
@@ -6,8 +6,10 @@ import {
   Typography,
   Avatar,
   fade,
+  Button,
 } from "@material-ui/core";
 import CommonSvg from "./CommonSvg";
+import Authentication from "../Utils/Authentication";
 
 const useStyles = makeStyles((theme) => ({
   navbarWrapper: {
@@ -18,17 +20,50 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   brandName: {
-    fontFamily: "Pacifico, cursive",
+    fontFamily: "Pacifico, cursive !important",
     fontSize: "1.4rem",
     lineHeight: "1.8rem",
   },
   navbarOptions: {
-    fontFamily: "Poppins, sans-serif",
     fontWeight: 500,
     color: "#080b26",
     letterSpacing: "0.03rem",
     cursor: "pointer",
     lineHeight: "1.8rem",
+  },
+  loginButton: {
+    position: "relative",
+    width: "8rem",
+    height: "2.4rem",
+    borderRadius: ".2rem",
+
+    "&::before": {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      content: "''",
+      // backgroundImage:
+      //   "linear-gradient(90deg, rgba(8,174,234,1) 0%, rgba(32,255,153,1) 100%, rgba(248,249,255,1) 100%)",
+      backgroundColor: "#005082",
+      borderRadius: ".2rem",
+      zIndex: -1,
+      // opacity: 0.7,
+    },
+  },
+  loginText: {
+    fontSize: "1rem",
+    color: "#ffffff",
+    fontWeight: 600,
+    textTransform: "none",
+    letterSpacing: "0.06rem",
+  },
+  userName: {
+    opacity: 0.8,
+    fontSize: "1rem",
+    color: "#162447",
+    fontWeight: 600,
+    textTransform: "none",
+    letterSpacing: "0.01rem",
   },
 }));
 
@@ -77,8 +112,11 @@ const Navbar = () => {
         colors[Math.floor(Math.random() * colors.length)];
     }
   }, []);
+
+  const [loggedIn, setloggedIn] = useState(true);
+
   return (
-    <Box padding="1.6rem 1.6rem 0 1.6rem" className={classes.navbarWrapper}>
+    <Box padding="1rem .8rem 0 .8rem" className={classes.navbarWrapper}>
       <Box display="flex" flexDirection="row" alignItems="center">
         <Box display="flex" flexDirection="row" alignItems="center">
           <CommonSvg type="logo" width="1.6rem" />
@@ -104,27 +142,64 @@ const Navbar = () => {
         </Box>
       </Box>
       <Box>
-        <Box className={classes.avatarHolder}>
-          <Avatar
-            // id="randomColor"
-            style={{
-              width: "3rem",
-              height: "3rem",
-              backgroundColor: fade("#318FB5", 0.49),
-            }}
+        {loggedIn ? (
+          <Box
+            className={classes.avatarHolder}
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
           >
-            <Typography
-              id="randomTextColor"
+            <Avatar
+              // id="randomColor"
+              src={
+                Authentication.loadUserProfile() &&
+                JSON.parse(Authentication.loadUserProfile()) &&
+                JSON.parse(Authentication.loadUserProfile()).imageUrl
+                  ? JSON.parse(Authentication.loadUserProfile()).imageUrl
+                  : null
+              }
               style={{
-                fontSize: "1.2rem",
-                fontWeight: 400,
-                textShadow: "0px 2px 40px #00000020, 0px 2px 5px #00000030",
+                width: "3rem",
+                height: "3rem",
               }}
             >
-              AC
-            </Typography>
-          </Avatar>
-        </Box>
+              <Typography
+                id="randomTextColor"
+                style={{
+                  fontSize: "1.2rem",
+                  fontWeight: 400,
+                  textShadow: "0px 2px 40px #00000020, 0px 2px 5px #00000030",
+                }}
+              >
+                AC
+              </Typography>
+            </Avatar>
+            <Box
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              style={{ cursor: "pointer" }}
+            >
+              <Box ml=".4rem">
+                <Typography className={classes.userName}>Aniket</Typography>
+              </Box>
+              <Box ml=".4rem">
+                <CommonSvg
+                  type="dropdown"
+                  width=".8rem"
+                  fill="#162447"
+                  height=".8rem"
+                />
+              </Box>
+            </Box>
+          </Box>
+        ) : (
+          <Box>
+            <Button className={classes.loginButton}>
+              <Typography className={classes.loginText}>Login</Typography>
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
   );

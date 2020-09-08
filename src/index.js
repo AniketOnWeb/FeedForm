@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import theme from "./Utils/theme";
 import { CssBaseline } from "@material-ui/core";
 import "regenerator-runtime/runtime.js";
+import "./index.css";
 
 const styles = (theme) => ({
   "@global": {

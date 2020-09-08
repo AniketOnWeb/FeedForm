@@ -195,6 +195,32 @@ const CommonSvg = (props) => {
         </linearGradient>
       </defs>
     </svg>
+  ) : type === "add" ? (
+    <svg
+      height="512"
+      viewBox="0 0 32 32"
+      width="512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="add,-cross,-plus,-sign" fill="none" fillRule="evenodd">
+        <path
+          id="Path"
+          d="m17 4v11h11v2h-11v11h-2v-11h-11v-2h11v-11z"
+          fill="#0d47a1"
+          fillule="nonzero"
+        />
+      </g>
+    </svg>
+  ) : type === "dropdown" ? (
+    <svg
+      viewBox="0 0 20 20"
+      width={width}
+      fill={fill}
+      height={height}
+      style={{ transform: "rotate(180deg)" }}
+    >
+      <path id="a" d="M10 7l6 7H4z" />
+    </svg>
   ) : (
     ""
   );
