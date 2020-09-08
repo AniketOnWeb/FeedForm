@@ -255,7 +255,13 @@ const Navbar = (props) => {
                 onClick={(e) => setSettingsDropDownAnchor(e.currentTarget)}
               >
                 <Box ml=".4rem">
-                  <Typography className={classes.userName}>Aniket</Typography>
+                  <Typography className={classes.userName}>
+                    {Authentication.loadUserProfile() &&
+                    JSON.parse(Authentication.loadUserProfile()) &&
+                    JSON.parse(Authentication.loadUserProfile()).name
+                      ? JSON.parse(Authentication.loadUserProfile()).name
+                      : null}
+                  </Typography>
                 </Box>
                 <Box ml=".4rem">
                   <CommonSvg
