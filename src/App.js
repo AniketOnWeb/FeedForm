@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { BrowserRouter, Route } from "react-router-dom";
+import Login from "./Components/Login";
 
 const App = () => {
   const matches1280 = useMediaQuery("(min-width:1280px)");
@@ -13,32 +15,40 @@ const App = () => {
 
   return (
     <CssBaseline>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <BrowserRouter>
         <Box
-          style={{
-            maxWidth: matches1280
-              ? "1280px"
-              : matches1024
-              ? "1024px"
-              : matches768
-              ? "768px"
-              : matches640
-              ? "640px"
-              : "",
-            width: "100%",
-          }}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
         >
-          <Navbar userExists={userExists} setuserExists={setuserExists} />
-          <Box>
-            <Hero userExists={userExists} setuserExists={setuserExists} />
+          <Box
+            style={{
+              maxWidth: matches1280
+                ? "1280px"
+                : matches1024
+                ? "1024px"
+                : matches768
+                ? "768px"
+                : matches640
+                ? "640px"
+                : "",
+              width: "100%",
+            }}
+          >
+            <Navbar userExists={userExists} setuserExists={setuserExists} />
+
+            <Route path="/">
+              <Box>
+                <Hero userExists={userExists} setuserExists={setuserExists} />
+              </Box>
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
           </Box>
         </Box>
-      </Box>
+      </BrowserRouter>
     </CssBaseline>
   );
 };
