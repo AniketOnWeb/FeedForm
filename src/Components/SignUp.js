@@ -112,7 +112,7 @@ const SignUp = (props) => {
                 style={{ marginLeft: ".6rem" }}
                 className={classes.loginText}
               >
-                Sign in Using Google
+                Continue with Google
               </Typography>
             </Button>
           </Box>

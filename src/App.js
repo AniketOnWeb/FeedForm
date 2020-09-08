@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Router } from "react-router-dom";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <CssBaseline>
-      <BrowserRouter>
+      <Router>
         <Box
           display="flex"
           flexDirection="column"
@@ -39,20 +39,20 @@ const App = () => {
           >
             <Navbar userExists={userExists} setuserExists={setuserExists} />
 
-            <Route path="/">
+            <Route exact path="/">
               <Box>
                 <Hero userExists={userExists} setuserExists={setuserExists} />
               </Box>
             </Route>
-            <Route path="/login">
+            <Route path="/login/">
               <Login />
             </Route>
-            <Route path="/signup">
+            <Route path="/signup/">
               <SignUp />
             </Route>
           </Box>
         </Box>
-      </BrowserRouter>
+      </Router>
     </CssBaseline>
   );
 };
