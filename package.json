@@ -1,6 +1,7 @@
 {
   "name": "mailer",
   "version": "1.0.0",
+  "main": "src/App.js",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "yarn run build",
