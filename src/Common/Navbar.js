@@ -74,23 +74,22 @@ const useStyles = makeStyles((theme) => ({
 
   popoverpaper: {
     minWidth: "10rem",
-    marginRight: "2.8rem",
     height: "auto",
-    marginTop: "3rem",
-    padding: "1rem .4rem",
+    marginTop: "1.2rem",
+    padding: ".6rem .4rem",
     width: "auto",
     boxShadow: "0 0 20px 1px #111d5e30 !important",
   },
   settingsText: {
-    fontSize: "1.2rem",
+    fontSize: "1rem",
     fontWeight: 400,
     color: "#7b7b7b",
     letterSpacing: "0.03rem",
     cursor: "pointer",
-    lineHeight: "1.8rem",
+    lineHeight: "1.4rem",
   },
   setting: {
-    height: "2.4rem",
+    height: "2rem",
     backgroundColor: "transparent",
     padding: "0 .6rem",
     display: "flex",
@@ -232,8 +231,8 @@ const Navbar = (props) => {
                     : null
                 }
                 style={{
-                  width: "3rem",
-                  height: "3rem",
+                  width: "2.4rem",
+                  height: "2.4rem",
                 }}
               >
                 <Typography
@@ -258,8 +257,8 @@ const Navbar = (props) => {
                   <Typography className={classes.userName}>
                     {Authentication.loadUserProfile() &&
                     JSON.parse(Authentication.loadUserProfile()) &&
-                    JSON.parse(Authentication.loadUserProfile()).name
-                      ? JSON.parse(Authentication.loadUserProfile()).name
+                    JSON.parse(Authentication.loadUserProfile()).givenName
+                      ? JSON.parse(Authentication.loadUserProfile()).givenName
                       : null}
                   </Typography>
                 </Box>
@@ -290,6 +289,14 @@ const Navbar = (props) => {
         classes={{
           root: classes.popoverRoot,
           paper: classes.popoverpaper,
+        }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
         }}
       >
         <Box>
