@@ -9,31 +9,31 @@ import "regenerator-runtime/runtime.js";
 
 const styles = (theme) => ({
   "@global": {
-    "@font-face": "poppins",
+    "@font-face": "Poppins, sans-serif",
 
     html: {
-      fontSize: 10,
+      fontSize: 17,
 
-      [theme.breakpoints.up("sd")]: {
-        fontSize: 11,
-      },
-      [theme.breakpoints.up("MacScaled")]: {
-        fontSize: 12,
-      },
-      [theme.breakpoints.up("md")]: {
-        fontSize: 12,
-      },
-      [theme.breakpoints.up("lg")]: {
-        fontSize: 15,
-      },
-      [theme.breakpoints.up("xl")]: {
-        fontSize: 27,
-      },
+      //   [theme.breakpoints.up("sd")]: {
+      //     fontSize: 11,
+      //   },
+      //   [theme.breakpoints.up("MacScaled")]: {
+      //     fontSize: 12,
+      //   },
+      //   [theme.breakpoints.up("md")]: {
+      //     fontSize: 12,
+      //   },
+      //   [theme.breakpoints.up("lg")]: {
+      //     fontSize: 15,
+      //   },
+      //   [theme.breakpoints.up("xl")]: {
+      //     fontSize: 27,
+      //   },
     },
 
     body: {
       overflow: "auto",
-      fontFamily: "poppins",
+      fontFamily: "Poppins, sans-serif",
       "&::-webkit-scrollbar": {
         width: "0",
       },
@@ -44,23 +44,23 @@ const styles = (theme) => ({
         width: "0",
       },
 
-      fontSize: 10,
+      fontSize: 17,
 
-      [theme.breakpoints.up("sd")]: {
-        fontSize: 11,
-      },
-      [theme.breakpoints.up("MacScaled")]: {
-        fontSize: 12,
-      },
-      [theme.breakpoints.up("md")]: {
-        fontSize: 12,
-      },
-      [theme.breakpoints.up("lg")]: {
-        fontSize: 15,
-      },
-      [theme.breakpoints.up("xl")]: {
-        fontSize: 27,
-      },
+      // [theme.breakpoints.up("sd")]: {
+      //   fontSize: 11,
+      // },
+      // [theme.breakpoints.up("MacScaled")]: {
+      //   fontSize: 12,
+      // },
+      // [theme.breakpoints.up("md")]: {
+      //   fontSize: 12,
+      // },
+      // [theme.breakpoints.up("lg")]: {
+      //   fontSize: 15,
+      // },
+      // [theme.breakpoints.up("xl")]: {
+      //   fontSize: 27,
+      // },
     },
   },
 });

@@ -22,6 +22,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.4rem",
     lineHeight: "1.8rem",
   },
+  navbarOptions: {
+    fontFamily: "Poppins, sans-serif",
+    fontWeight: 500,
+    color: "#080b26",
+    letterSpacing: "0.03rem",
+    cursor: "pointer",
+    lineHeight: "1.8rem",
+  },
 }));
 
 const bgColors = [
@@ -42,6 +50,18 @@ const colors = [
   "#3C1053FF",
 ];
 
+const NavbarLeftOptions = [
+  {
+    name: "Features",
+  },
+  {
+    name: "Pricing",
+  },
+  {
+    name: "Contact",
+  },
+];
+
 const Navbar = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
@@ -58,11 +78,29 @@ const Navbar = () => {
     }
   }, []);
   return (
-    <Box padding="2.4rem" className={classes.navbarWrapper}>
+    <Box padding="1.6rem 1.6rem 0 1.6rem" className={classes.navbarWrapper}>
       <Box display="flex" flexDirection="row" alignItems="center">
-        <CommonSvg type="logo" width="2rem" />
-        <Box ml=".8rem">
-          <Typography className={classes.brandName}>FeedForm</Typography>
+        <Box display="flex" flexDirection="row" alignItems="center">
+          <CommonSvg type="logo" width="1.6rem" />
+          <Box ml=".8rem">
+            <Typography className={classes.brandName}>FeedForm</Typography>
+          </Box>
+        </Box>
+
+        <Box
+          display="flex"
+          flexDirection="row"
+          alignItems="center"
+          ml="4rem"
+          // mt=".4rem"
+        >
+          {NavbarLeftOptions.map((item, i) => (
+            <Box key={i} mr="1.7rem">
+              <Typography className={classes.navbarOptions}>
+                {item.name}
+              </Typography>
+            </Box>
+          ))}
         </Box>
       </Box>
       <Box>
@@ -70,8 +108,8 @@ const Navbar = () => {
           <Avatar
             // id="randomColor"
             style={{
-              width: "2.4rem",
-              height: "2.4rem",
+              width: "3rem",
+              height: "3rem",
               backgroundColor: fade("#318FB5", 0.49),
             }}
           >

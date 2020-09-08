@@ -104,9 +104,10 @@ const Hero = () => {
           </Button>
         </Box>
       </Box>
-      <Box justifySelf="flex-start" id="hero-bg" width="50rem"></Box>
     </Box>
   );
 };
 
 export default Hero;
+
+// <Box justifySelf="flex-start" id="hero-bg" width="50rem"></Box>;
