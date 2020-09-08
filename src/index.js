@@ -10,7 +10,7 @@ import "./index.css";
 
 const styles = (theme) => ({
   "@global": {
-    "@font-face": "Poppins, sans-serif",
+    "@font-face": "system-ui, sans-serif",
 
     html: {
       fontSize: 17,
@@ -34,7 +34,7 @@ const styles = (theme) => ({
 
     body: {
       overflow: "auto",
-      fontFamily: "Poppins, sans-serif",
+      fontFamily: "system-ui, sans-serif",
       "&::-webkit-scrollbar": {
         width: "0",
       },

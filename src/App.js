@@ -5,6 +5,7 @@ import Hero from "./Components/Hero/Hero";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { BrowserRouter, Route } from "react-router-dom";
 import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 
 const App = () => {
   const matches1280 = useMediaQuery("(min-width:1280px)");
@@ -45,6 +46,9 @@ const App = () => {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
             </Route>
           </Box>
         </Box>

@@ -36,7 +36,7 @@ const colorPreset = {
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: "Poppins",
+    fontFamily: "system-ui",
   },
 
   breakpoints: {
