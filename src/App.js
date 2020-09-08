@@ -44,12 +44,8 @@ const App = () => {
                   <Hero userExists={userExists} setuserExists={setuserExists} />
                 </Box>
               </Route>
-              <Route path="/login/">
-                <Login />
-              </Route>
-              <Route path="/signup/">
-                <SignUp />
-              </Route>
+              <Route path="/login/" component={Login} />
+              <Route path="/signup/" component={SignUp} />
             </Switch>
           </Box>
         </Box>

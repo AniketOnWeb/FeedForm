@@ -8,6 +8,7 @@ import {
 import app from "firebase/app";
 import React, { useState } from "react";
 import CommonSvg from "../Common/CommonSvg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   loginButton: {
@@ -41,7 +42,7 @@ const Login = (props) => {
 
   return (
     <Box padding="2.4rem" className={classes.HeroWrapper}>
-      <Box>
+      <Link to="signup">
         <Button className={classes.loginButton}>
           <CommonSvg type="google" width="1.4rem" />
           <Typography
@@ -51,7 +52,7 @@ const Login = (props) => {
             Sign in Using Google
           </Typography>
         </Button>
-      </Box>
+      </Link>
     </Box>
   );
 };

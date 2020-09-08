@@ -10,7 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import Authentication from "../Utils/Authentication";
 import CommonSvg from "./CommonSvg";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   navbarWrapper: {
@@ -274,14 +274,11 @@ const Navbar = (props) => {
               </Box>
             </Box>
           ) : (
-            <Box>
-              <Button
-                className={classes.loginButton}
-                onClick={() => props.history.push("/login")}
-              >
+            <Link to="/login">
+              <Button className={classes.loginButton}>
                 <Typography className={classes.loginText}>Login</Typography>
               </Button>
-            </Box>
+            </Link>
           )}
         </Box>
       </Box>
