@@ -77,7 +77,7 @@ const SignUp = (props) => {
   const classes = useStyles(theme);
 
   return (
-    <Box padding="0 .8rem 0 .8rem">
+    <Box padding="0 .8rem 0 .8rem" mt="4rem">
       <Box className={classes.SignupWrapper}>
         <Box className={classes.formHolder}>
           <Box>
