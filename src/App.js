@@ -1,4 +1,4 @@
-import { Box, CssBaseline } from "@material-ui/core";
+import { Box, CssBaseline, Switch } from "@material-ui/core";
 import React, { useState } from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
@@ -38,18 +38,19 @@ const App = () => {
             }}
           >
             <Navbar userExists={userExists} setuserExists={setuserExists} />
-
-            <Route exact path="/">
-              <Box>
-                <Hero userExists={userExists} setuserExists={setuserExists} />
-              </Box>
-            </Route>
-            <Route path="/login/">
-              <Login />
-            </Route>
-            <Route path="/signup/">
-              <SignUp />
-            </Route>
+            <Switch>
+              <Route exact path="/">
+                <Box>
+                  <Hero userExists={userExists} setuserExists={setuserExists} />
+                </Box>
+              </Route>
+              <Route path="/login/">
+                <Login />
+              </Route>
+              <Route path="/signup/">
+                <SignUp />
+              </Route>
+            </Switch>
           </Box>
         </Box>
       </Router>
