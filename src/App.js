@@ -1,5 +1,5 @@
 import { Box, CssBaseline } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -9,6 +9,7 @@ const App = () => {
   const matches1024 = useMediaQuery("(min-width:1024px)");
   const matches768 = useMediaQuery("(min-width:768px)");
   const matches640 = useMediaQuery("(min-width:640px)");
+  const [userExists, setuserExists] = useState(null);
 
   return (
     <CssBaseline>
@@ -32,9 +33,9 @@ const App = () => {
             width: "100%",
           }}
         >
-          <Navbar />
+          <Navbar userExists={userExists} setuserExists={setuserExists} />
           <Box>
-            <Hero />
+            <Hero userExists={userExists} setuserExists={setuserExists} />
           </Box>
         </Box>
       </Box>

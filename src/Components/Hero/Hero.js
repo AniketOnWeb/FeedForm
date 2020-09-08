@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
-import {
-  useTheme,
-  Box,
-  makeStyles,
-  Typography,
-  Avatar,
-  fade,
-  Button,
-} from "@material-ui/core";
-import logoSvgData from "../../data.json";
+import { Box, Button, makeStyles, useTheme } from "@material-ui/core";
 import app from "firebase/app";
+import React, { useState } from "react";
 import GoogleLogin from "react-google-login";
-import Authentication from "../../Utils/Authentication";
+import logoSvgData from "../../data.json";
 import Firebase from "../../Firebase/firebase";
+import Authentication from "../../Utils/Authentication";
 
 const useStyles = makeStyles((theme) => ({
   HeroWrapper: {
@@ -21,11 +13,10 @@ const useStyles = makeStyles((theme) => ({
     gridGap: "12rem",
   },
 }));
-const Hero = () => {
+const Hero = (props) => {
   const theme = useTheme();
   const classes = useStyles(theme);
-  const [userExists, setuserExists] = useState(null);
-
+  const { userExists, setuserExists } = props;
   const db = app.firestore();
   const LoggedInUserData = Authentication.loadUserProfile();
   const LoggedInUserToken = Authentication.load();
@@ -83,26 +74,6 @@ const Hero = () => {
             cookiePolicy={"single_host_origin"}
           />
         )}
-        <Box>
-          {LoggedInUserData &&
-          LoggedInUserData !== undefined &&
-          LoggedInUserData !== "undefined" &&
-          LoggedInUserData !== null
-            ? JSON.parse(LoggedInUserData) && JSON.parse(LoggedInUserData).name
-              ? JSON.parse(LoggedInUserData).name
-              : ""
-            : ""}
-
-          <Button
-            style={{ backgroundColor: "red" }}
-            onClick={() => {
-              Authentication.reset();
-              setuserExists(false);
-            }}
-          >
-            Sign out
-          </Button>
-        </Box>
       </Box>
     </Box>
   );
@@ -111,3 +82,24 @@ const Hero = () => {
 export default Hero;
 
 // <Box justifySelf="flex-start" id="hero-bg" width="50rem"></Box>;
+
+//  <Box>
+//    {LoggedInUserData &&
+//    LoggedInUserData !== undefined &&
+//    LoggedInUserData !== "undefined" &&
+//    LoggedInUserData !== null
+//      ? JSON.parse(LoggedInUserData) && JSON.parse(LoggedInUserData).name
+//        ? JSON.parse(LoggedInUserData).name
+//        : ""
+//      : ""}
+
+//    <Button
+//      style={{ backgroundColor: "red" }}
+//      onClick={() => {
+//        Authentication.reset();
+//        setuserExists(false);
+//      }}
+//    >
+//      Sign out
+//    </Button>
+//  </Box>;

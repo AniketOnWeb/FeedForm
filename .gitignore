@@ -27,3 +27,7 @@ node_modules
 dist
 .cache
 /dist
+
+node_modules/
+.cahce/
+dist/
