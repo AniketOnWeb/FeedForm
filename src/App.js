@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "./Common/Navbar";
 import Hero from "./Components/Hero/Hero";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { BrowserRouter, Route, Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 
