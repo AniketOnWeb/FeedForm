@@ -14,22 +14,7 @@ const styles = (theme) => ({
 
     html: {
       fontSize: 17,
-
-      //   [theme.breakpoints.up("sd")]: {
-      //     fontSize: 11,
-      //   },
-      //   [theme.breakpoints.up("MacScaled")]: {
-      //     fontSize: 12,
-      //   },
-      //   [theme.breakpoints.up("md")]: {
-      //     fontSize: 12,
-      //   },
-      //   [theme.breakpoints.up("lg")]: {
-      //     fontSize: 15,
-      //   },
-      //   [theme.breakpoints.up("xl")]: {
-      //     fontSize: 27,
-      //   },
+      fontFamily: "system-ui, sans-serif",
     },
 
     body: {
@@ -44,24 +29,6 @@ const styles = (theme) => ({
       "&::-webkit-scrollbar-thumb": {
         width: "0",
       },
-
-      fontSize: 17,
-
-      // [theme.breakpoints.up("sd")]: {
-      //   fontSize: 11,
-      // },
-      // [theme.breakpoints.up("MacScaled")]: {
-      //   fontSize: 12,
-      // },
-      // [theme.breakpoints.up("md")]: {
-      //   fontSize: 12,
-      // },
-      // [theme.breakpoints.up("lg")]: {
-      //   fontSize: 15,
-      // },
-      // [theme.breakpoints.up("xl")]: {
-      //   fontSize: 27,
-      // },
     },
   },
 });
