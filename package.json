@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "parcel build public/index.html --public-url ./"
+    "build": "react-scripts build && echo '/* /index.html 200' | cat >build/_redirects "
   },
   "author": "",
   "license": "ISC",
