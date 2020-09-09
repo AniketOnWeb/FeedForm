@@ -90,7 +90,7 @@ const SignUp = (props) => {
                 letterSpacing: "0.015rem",
               }}
             >
-              Easily gather, track, and manage user feedback
+              Easily collect, track, and manage user feedback
             </Typography>
           </Box>
           <Box mt="1.8rem">
