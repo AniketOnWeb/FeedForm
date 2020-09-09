@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   createAccountButton: {
     position: "relative",
     width: "100%",
-    height: "2.4rem",
+    height: "3rem",
     borderRadius: ".2rem",
     padding: "0 .8rem",
 
@@ -108,9 +108,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   createAccountText: {
-    fontSize: ".9rem",
+    fontSize: ".8rem",
     color: "#ffffff",
-    fontWeight: "bold",
+    fontWeight: 600,
     lineHeight: "1rem",
     textTransform: "uppercase",
     letterSpacing: "0.06rem",
@@ -139,9 +139,9 @@ const useInputFieldClasses = makeStyles((theme) => ({
   },
 
   input: {
-    fontSize: "1rem !important",
+    fontSize: ".95rem !important",
     lineHeight: "2.2rem",
-    fontWeight: "400 !important",
+    fontWeight: "500 !important",
     letterSpacing: "0.01rem",
     color: "#333",
     fontFamily: "system-ui, sans-serif",
@@ -151,9 +151,9 @@ const useInputFieldClasses = makeStyles((theme) => ({
     "&::placeholder": {
       fontFamily: "system-ui, sans-serif",
       color: "#333",
-      fontSize: "1rem !important",
+      fontSize: ".95rem !important",
       lineHeight: "2.2rem",
-      fontWeight: "400 !important",
+      fontWeight: "500 !important",
       opacity: ".5 !important",
       letterSpacing: "0.01rem",
       wordSpacing: "0.02rem",
