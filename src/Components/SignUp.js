@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   createAccountButton: {
     position: "relative",
     width: "100%",
-    height: "3rem",
+    height: "2.7rem",
     borderRadius: ".2rem",
     padding: "0 .8rem",
 
@@ -108,10 +108,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   createAccountText: {
-    fontSize: ".8rem",
+    fontSize: ".75rem",
     color: "#ffffff",
     fontWeight: 600,
-    lineHeight: "1rem",
+    lineHeight: "inherit",
     textTransform: "uppercase",
     letterSpacing: "0.06rem",
   },
@@ -140,23 +140,23 @@ const useInputFieldClasses = makeStyles((theme) => ({
 
   input: {
     fontSize: ".95rem !important",
-    lineHeight: "2.2rem",
     fontWeight: "500 !important",
     letterSpacing: "0.01rem",
     color: "#333",
     fontFamily: "system-ui, sans-serif",
     wordSpacing: "0.02rem",
     padding: "0",
+    lineHeight: "inherit",
 
     "&::placeholder": {
       fontFamily: "system-ui, sans-serif",
       color: "#333",
       fontSize: ".95rem !important",
-      lineHeight: "2.2rem",
       fontWeight: "500 !important",
       opacity: ".5 !important",
       letterSpacing: "0.01rem",
       wordSpacing: "0.02rem",
+      lineHeight: "inherit",
     },
   },
 }));
@@ -200,8 +200,16 @@ const SignUp = (props) => {
   };
 
   //text field states and handlers
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
+  const [Name, setName] = useState(
+    LoggedInUserData && JSON.parse(LoggedInUserData).name
+      ? JSON.parse(LoggedInUserData).name
+      : ""
+  );
+  const [Email, setEmail] = useState(
+    LoggedInUserData && JSON.parse(LoggedInUserData).email
+      ? JSON.parse(LoggedInUserData).email
+      : ""
+  );
   const [CompanyName, setCompanyName] = useState("");
 
   const handleChangeName = useCallback(
