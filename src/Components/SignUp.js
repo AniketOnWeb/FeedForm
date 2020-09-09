@@ -77,6 +77,44 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     letterSpacing: "0.06rem",
   },
+  createAccountButton: {
+    position: "relative",
+    width: "100%",
+    height: "2.4rem",
+    borderRadius: ".2rem",
+    padding: "0 .8rem",
+
+    "&::before": {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      content: "''",
+      backgroundColor: "#005082",
+      borderRadius: ".2rem",
+      zIndex: -1,
+    },
+
+    "&:hover": {
+      "&::before": {
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        content: "''",
+        backgroundColor: "#005082",
+        opacity: ".85",
+        borderRadius: ".2rem",
+        zIndex: -1,
+      },
+    },
+  },
+  createAccountText: {
+    fontSize: ".9rem",
+    color: "#ffffff",
+    fontWeight: "bold",
+    lineHeight: "1rem",
+    textTransform: "uppercase",
+    letterSpacing: "0.06rem",
+  },
 }));
 
 const useInputFieldClasses = makeStyles((theme) => ({
@@ -144,9 +182,13 @@ const SignUp = (props) => {
             Authentication.save(response.accessToken);
             Authentication.saveUserProfile(JSON.stringify(response.profileObj));
             setuserExists(false);
+            setName(response.profileObj.name);
+            setEmail(response.profileObj.email);
           } else {
             Authentication.save(response.accessToken);
             Authentication.saveUserProfile(JSON.stringify(response.profileObj));
+            setName(response.profileObj.name);
+            setEmail(response.profileObj.email);
             setuserExists(true);
           }
         });
@@ -158,8 +200,8 @@ const SignUp = (props) => {
   };
 
   //text field states and handlers
-  const [Name, setName] = useState("Aniket Chaudhary");
-  const [Email, setEmail] = useState("aniket@caringcompany.in");
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
   const [CompanyName, setCompanyName] = useState("");
 
   const handleChangeName = useCallback(
@@ -319,6 +361,14 @@ const SignUp = (props) => {
                     classes: inputFieldClasses,
                   }}
                 />
+              </Box>
+
+              <Box mt=".8rem">
+                <Button className={classes.createAccountButton}>
+                  <Typography className={classes.createAccountText}>
+                    Create free account
+                  </Typography>
+                </Button>
               </Box>
             </Box>
           </Box>
