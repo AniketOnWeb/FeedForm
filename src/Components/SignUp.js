@@ -6,6 +6,8 @@ import {
   Typography,
   Avatar,
   TextField,
+  Fade,
+  Grow,
 } from "@material-ui/core";
 import app from "firebase/app";
 import React, { useState, useCallback } from "react";
@@ -47,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     height: "2.4rem",
     borderRadius: "20rem",
     padding: "0 .8rem",
+    transition: "all .1s ease-in-out",
 
     "&::before": {
       position: "absolute",
@@ -55,7 +58,11 @@ const useStyles = makeStyles((theme) => ({
       content: "''",
       backgroundColor: "#005082",
       borderRadius: "20rem",
-      zIndex: -1,
+      zIndex: 1,
+    },
+
+    "&:active": {
+      transform: "scale(.95)",
     },
 
     "&:hover": {
@@ -66,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
         content: "''",
         backgroundColor: "#00263e",
         borderRadius: "20rem",
-        zIndex: -1,
+        zIndex: 1,
       },
     },
   },
@@ -83,6 +90,11 @@ const useStyles = makeStyles((theme) => ({
     height: "2.7rem",
     borderRadius: ".2rem",
     padding: "0 .8rem",
+    transition: "all .2s ease-in-out",
+
+    "&:active": {
+      transform: "scale(.95)",
+    },
 
     "&::before": {
       position: "absolute",
@@ -271,13 +283,15 @@ const SignUp = (props) => {
                     className={classes.loginButton}
                     onClick={renderProps.onClick}
                   >
-                    <CommonSvg type="google" width="1.4rem" />
-                    <Typography
-                      style={{ marginLeft: ".6rem" }}
-                      className={classes.loginText}
-                    >
-                      Continue with Google
-                    </Typography>
+                    <Box style={{ zIndex: 2, display: "flex" }}>
+                      <CommonSvg type="google" width="1.4rem" />
+                      <Typography
+                        style={{ marginLeft: ".6rem" }}
+                        className={classes.loginText}
+                      >
+                        Continue with Google
+                      </Typography>
+                    </Box>
                   </Button>
                 )}
                 onSuccess={handleSuccess}
@@ -287,99 +301,102 @@ const SignUp = (props) => {
             )}
           </Box>
 
-          <Box
-            mt="4rem"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            maxWidth="70%"
-          >
+          <Grow in={LoggedInUserToken} timeout={200}>
             <Box
-              className={classes.avatarHolder}
+              mt="4rem"
               display="flex"
-              flexDirection="row"
+              flexDirection="column"
               alignItems="center"
-              zIndex="99"
+              maxWidth="70%"
             >
-              <Avatar
-                src={
-                  Authentication.loadUserProfile() &&
-                  JSON.parse(Authentication.loadUserProfile()) &&
-                  JSON.parse(Authentication.loadUserProfile()).imageUrl
-                    ? JSON.parse(Authentication.loadUserProfile()).imageUrl
-                    : null
-                }
-                style={{
-                  width: "3rem",
-                  height: "3rem",
-                }}
+              <Box
+                className={classes.avatarHolder}
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                zIndex="99"
               >
-                <Typography
-                  id="randomTextColor"
+                <Avatar
+                  src={
+                    Authentication.loadUserProfile() &&
+                    JSON.parse(Authentication.loadUserProfile()) &&
+                    JSON.parse(Authentication.loadUserProfile()).imageUrl
+                      ? JSON.parse(Authentication.loadUserProfile()).imageUrl
+                      : null
+                  }
                   style={{
-                    fontSize: "1.2rem",
-                    fontWeight: 400,
-                    textShadow: "0px 2px 40px #00000020, 0px 2px 5px #00000030",
+                    width: "3rem",
+                    height: "3rem",
                   }}
                 >
-                  AC
-                </Typography>
-              </Avatar>
-            </Box>
-            <Box
-              alignSelf="flex-start"
-              width="100%"
-              style={{ transform: "translateY(-.25rem)" }}
-            >
-              <Box>
-                <TextField
-                  value={Name}
-                  style={{ width: "100%" }}
-                  onChange={handleChangeName}
-                  placeholder="Full Name"
-                  className={classes.MessageInput}
-                  InputProps={{
-                    disableUnderline: true,
-                    classes: inputFieldClasses,
-                  }}
-                />
-              </Box>
-              <Box mt=".8rem">
-                <TextField
-                  value={Email}
-                  onChange={handleChangeEmail}
-                  style={{ width: "100%" }}
-                  placeholder="Work Email"
-                  className={classes.MessageInput}
-                  InputProps={{
-                    disableUnderline: true,
-                    classes: inputFieldClasses,
-                  }}
-                />
-              </Box>
-              <Box mt=".8rem">
-                <TextField
-                  value={CompanyName}
-                  onChange={handleChangeCompanyName}
-                  style={{ width: "100%" }}
-                  placeholder="Company/App Name"
-                  className={classes.MessageInput}
-                  InputProps={{
-                    disableUnderline: true,
-                    classes: inputFieldClasses,
-                  }}
-                />
-              </Box>
-
-              <Box mt=".8rem">
-                <Button className={classes.createAccountButton}>
-                  <Typography className={classes.createAccountText}>
-                    Create free account
+                  <Typography
+                    id="randomTextColor"
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: 400,
+                      textShadow:
+                        "0px 2px 40px #00000020, 0px 2px 5px #00000030",
+                    }}
+                  >
+                    AC
                   </Typography>
-                </Button>
+                </Avatar>
+              </Box>
+              <Box
+                alignSelf="flex-start"
+                width="100%"
+                style={{ transform: "translateY(-.25rem)" }}
+              >
+                <Box>
+                  <TextField
+                    value={Name}
+                    style={{ width: "100%" }}
+                    onChange={handleChangeName}
+                    placeholder="Full Name"
+                    className={classes.MessageInput}
+                    InputProps={{
+                      disableUnderline: true,
+                      classes: inputFieldClasses,
+                    }}
+                  />
+                </Box>
+                <Box mt=".8rem">
+                  <TextField
+                    value={Email}
+                    onChange={handleChangeEmail}
+                    style={{ width: "100%" }}
+                    placeholder="Work Email"
+                    className={classes.MessageInput}
+                    InputProps={{
+                      disableUnderline: true,
+                      classes: inputFieldClasses,
+                    }}
+                  />
+                </Box>
+                <Box mt=".8rem">
+                  <TextField
+                    value={CompanyName}
+                    onChange={handleChangeCompanyName}
+                    style={{ width: "100%" }}
+                    placeholder="Company/App Name"
+                    className={classes.MessageInput}
+                    InputProps={{
+                      disableUnderline: true,
+                      classes: inputFieldClasses,
+                    }}
+                  />
+                </Box>
+
+                <Box mt="1.2rem">
+                  <Button className={classes.createAccountButton}>
+                    <Typography className={classes.createAccountText}>
+                      Create free account
+                    </Typography>
+                  </Button>
+                </Box>
               </Box>
             </Box>
-          </Box>
+          </Grow>
         </Box>
 
         <Box className={classes.bannerHolder}>
