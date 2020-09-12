@@ -22,21 +22,22 @@ const useStyles = makeStyles((theme) => ({
   },
   brandName: {
     fontFamily: "Pacifico, cursive !important",
-    fontSize: "1.4rem",
-    lineHeight: "1.8rem",
+    fontSize: "2.38rem",
+    lineHeight: "5.1rem",
   },
   navbarOptions: {
     fontWeight: 500,
     color: "#080b26",
-    letterSpacing: "0.03rem",
+    letterSpacing: "0.051rem",
     cursor: "pointer",
-    lineHeight: "1.8rem",
+    lineHeight: "5.1rem",
+    fontSize: "1.6rem",
   },
   loginButton: {
     position: "relative",
-    width: "8rem",
-    height: "2.4rem",
-    borderRadius: ".2rem",
+    width: "13.6rem",
+    height: "4.08rem",
+    borderRadius: ".578rem",
 
     "&::before": {
       position: "absolute",
@@ -44,29 +45,29 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
       content: "''",
       backgroundColor: "#005082",
-      borderRadius: ".2rem",
+      borderRadius: ".578rem",
       zIndex: -1,
     },
   },
   loginText: {
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     color: "#ffffff",
     fontWeight: 600,
     textTransform: "none",
-    letterSpacing: "0.06rem",
+    letterSpacing: "0.17rem",
   },
   userName: {
     opacity: 0.8,
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     color: "#162447",
     fontWeight: 600,
     textTransform: "none",
-    letterSpacing: "0.01rem",
+    letterSpacing: "0.017rem",
   },
 
   popoverRoot: {
     "& > div": {
-      borderRadius: ".2rem !important",
+      borderRadius: ".578rem !important",
       overflow: "hidden",
       boxShadow: "unset",
       backgroundColor: "#f9f9f9",
@@ -74,34 +75,34 @@ const useStyles = makeStyles((theme) => ({
   },
 
   popoverpaper: {
-    minWidth: "10rem",
+    minWidth: "17rem",
     height: "auto",
-    marginTop: "1.2rem",
-    padding: ".6rem .4rem",
+    marginTop: "2.04rem",
+    padding: "1.02rem .68rem",
     width: "auto",
     boxShadow: "0 0 20px 1px #111d5e30 !important",
   },
   settingsText: {
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     fontWeight: 400,
     color: "#7b7b7b",
-    letterSpacing: "0.03rem",
+    letterSpacing: "0.051rem",
     cursor: "pointer",
-    lineHeight: "1.4rem",
+    lineHeight: "2.38rem",
   },
   setting: {
-    height: "2rem",
+    height: "3.4rem",
     backgroundColor: "transparent",
-    padding: "0 .6rem",
+    padding: "0 1.02rem",
     display: "flex",
     alignItems: "center",
-    borderRadius: ".2rem",
+    borderRadius: ".578rem",
     position: "relative",
     zIndex: 1,
     cursor: "pointer",
 
     "&:hover": {
-      borderRadius: ".2rem",
+      borderRadius: ".578rem",
       backgroundColor: "transparent",
 
       "&::before": {
@@ -110,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
         content: "''",
         backgroundColor: "#005082",
-        borderRadius: ".2rem",
+        borderRadius: ".578rem",
         zIndex: -1,
         left: 0,
       },
@@ -189,11 +190,11 @@ const Navbar = (props) => {
   const openSettingsDropDown = Boolean(SettingsDropDownAnchor);
   return (
     <>
-      <Box padding="1rem .8rem 0 .8rem" className={classes.navbarWrapper}>
+      <Box padding="1.7rem 3rem 0 3rem" className={classes.navbarWrapper}>
         <Box display="flex" flexDirection="row" alignItems="center">
           <Box display="flex" flexDirection="row" alignItems="center">
-            <CommonSvg type="logo" width="1.6rem" />
-            <Box ml=".8rem">
+            <CommonSvg type="logo" width="2.72rem" />
+            <Box ml="1.36rem">
               <Typography className={classes.brandName}>FeedForm</Typography>
             </Box>
           </Box>
@@ -202,11 +203,10 @@ const Navbar = (props) => {
             display="flex"
             flexDirection="row"
             alignItems="center"
-            ml="4rem"
-            // mt=".4rem"
+            ml="6.8rem"
           >
             {NavbarLeftOptions.map((item, i) => (
-              <Box key={i} mr="1.7rem">
+              <Box key={i} mr="2.89rem">
                 <Typography className={classes.navbarOptions}>
                   {item.name}
                 </Typography>
@@ -232,14 +232,14 @@ const Navbar = (props) => {
                     : null
                 }
                 style={{
-                  width: "2.4rem",
-                  height: "2.4rem",
+                  width: "4.08rem",
+                  height: "4.08rem",
                 }}
               >
                 <Typography
                   id="randomTextColor"
                   style={{
-                    fontSize: "1.2rem",
+                    fontSize: "2.04rem",
                     fontWeight: 400,
                     textShadow: "0px 2px 40px #00000020, 0px 2px 5px #00000030",
                   }}
@@ -254,7 +254,7 @@ const Navbar = (props) => {
                 style={{ cursor: "pointer" }}
                 onClick={(e) => setSettingsDropDownAnchor(e.currentTarget)}
               >
-                <Box ml=".4rem">
+                <Box ml=".68rem">
                   <Typography className={classes.userName}>
                     {Authentication.loadUserProfile() &&
                     JSON.parse(Authentication.loadUserProfile()) &&
@@ -263,12 +263,12 @@ const Navbar = (props) => {
                       : null}
                   </Typography>
                 </Box>
-                <Box ml=".4rem">
+                <Box ml=".68rem">
                   <CommonSvg
                     type="dropdown"
-                    width=".8rem"
+                    width="1.36rem"
                     fill="#162447"
-                    height=".8rem"
+                    height="1.36rem"
                   />
                 </Box>
               </Box>

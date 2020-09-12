@@ -13,7 +13,7 @@ const styles = (theme) => ({
     "@font-face": "system-ui, sans-serif",
 
     html: {
-      fontSize: 17,
+      fontSize: 10,
       fontFamily: "system-ui, sans-serif",
     },
 

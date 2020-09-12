@@ -87,7 +87,7 @@ const theme = createMuiTheme({
   },
 
   mediumTextDark12: {
-    fontSize: "2rem",
+    fontSize: "3.4rem",
     fontWeight: 800,
     color: colorPreset.ExtrahighEmphasis,
     lineHeight: "2.8rem",
@@ -101,11 +101,11 @@ const theme = createMuiTheme({
     letterSpacing: "0.08rem",
   },
   CommonText: {
-    fontSize: "1.6rem",
+    fontSize: "2.72rem",
     fontWeight: 400,
     color: colorPreset.mediumEmphasis,
-    lineHeight: "3rem",
-    letterSpacing: "0.03rem",
+    lineHeight: "5.1rem",
+    letterSpacing: "0.051rem",
   },
 
   enabledButton: {
@@ -113,15 +113,15 @@ const theme = createMuiTheme({
     height: "4.2rem",
     boxShadow: "none",
     textTransform: "none",
-    borderRadius: ".2rem",
+    borderRadius: ".578rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
     minWidth: "unset",
-    borderBottomRightRadius: "1.6rem",
-    borderTopRightRadius: "1.6rem",
-    borderTopLeftRadius: "1.6rem",
+    borderBottomRightRadius: "2.72rem",
+    borderTopRightRadius: "2.72rem",
+    borderTopLeftRadius: "2.72rem",
 
     "&::before": {
       content: "''",
@@ -131,9 +131,9 @@ const theme = createMuiTheme({
       backgroundColor: "#53daf2",
       zIndex: -1,
       opacity: 0.8,
-      borderBottomRightRadius: "1.6rem",
-      borderTopRightRadius: "1.6rem",
-      borderTopLeftRadius: "1.6rem",
+      borderBottomRightRadius: "2.72rem",
+      borderTopRightRadius: "2.72rem",
+      borderTopLeftRadius: "2.72rem",
     },
 
     "&:hover": {
@@ -144,67 +144,67 @@ const theme = createMuiTheme({
         position: "absolute",
         backgroundColor: "#53daf2",
         zIndex: -1,
-        borderBottomRightRadius: "1.6rem",
-        borderTopRightRadius: "1.6rem",
-        borderTopLeftRadius: "1.6rem",
+        borderBottomRightRadius: "2.72rem",
+        borderTopRightRadius: "2.72rem",
+        borderTopLeftRadius: "2.72rem",
         opacity: 0.8,
       },
     },
   },
 
   regularDisabled12: {
-    fontSize: "1.2rem",
+    fontSize: "2.04rem",
     fontWeight: 400,
     color: colorPreset.textColorDisabled,
-    lineHeight: "1.6rem",
+    lineHeight: "2.72rem",
   },
 
   columnHeading: {
-    marginBottom: "1.6rem",
-    fontSize: "1rem",
+    marginBottom: "2.72rem",
+    fontSize: "1.7rem",
     fontWeight: 500,
-    lineHeight: "1.4rem",
+    lineHeight: "2.38rem",
     color: colorPreset.mediumEmphasis,
     letterSpacing: ".1rem",
   },
   regularNormal16: {
-    fontSize: "1.6rem",
+    fontSize: "2.72rem",
     fontWeight: 500,
     color: colorPreset.ExtrahighEmphasis,
     lineHeight: "2.2rem",
-    letterSpacing: "0.03rem",
+    letterSpacing: "0.051rem",
   },
 
   mediumDisabled12: {
     color: colorPreset.lowEmphasis,
-    fontSize: "1.2rem",
+    fontSize: "2.04rem",
     fontWeight: 500,
-    lineHeight: "1.6rem",
+    lineHeight: "2.72rem",
   },
   regularHigh12: {
-    fontSize: "1.2rem",
+    fontSize: "2.04rem",
     fontWeight: 400,
     color: colorPreset.textColorHighEmphasis,
-    lineHeight: "1.6rem",
+    lineHeight: "2.72rem",
   },
 
   normalText: {
-    fontSize: ".8rem",
+    fontSize: "1.36rem",
     fontWeight: 500,
     color: colorPreset.mediumEmphasis,
-    lineHeight: "1.4rem",
+    lineHeight: "2.38rem",
   },
   commonText: {
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     fontWeight: 500,
-    lineHeight: "1.4rem",
+    lineHeight: "2.38rem",
     letterSpacing: "0",
     color: colorPreset.highEmphasis,
     textDecoration: "none",
   },
 
   boldHigh24: {
-    fontSize: "2.4rem",
+    fontSize: "4.08rem",
     fontWeight: 500,
     lineHeight: "3.3rem",
     color: colorPreset.baseDark1,
@@ -215,7 +215,7 @@ const theme = createMuiTheme({
     fontWeight: "bold",
     lineHeight: "7.2rem",
     color: colorPreset.highEmphasis,
-    letterSpacing: "0.06rem",
+    letterSpacing: "0.17rem",
   },
 });
 

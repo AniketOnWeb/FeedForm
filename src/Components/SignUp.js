@@ -16,20 +16,21 @@ import signupBanner from "../../src/Assets/signupBanner.png";
 import Authentication from "../Utils/Authentication";
 import GoogleLogin from "react-google-login";
 import Firebase from "../Firebase/firebase";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   SignupWrapper: {
     display: "grid",
-    height: "48rem",
+    height: "81.6rem",
     gridTemplateColumns: ".55fr .45fr",
     width: "100%",
-    border: "0.05rem solid #5d5d5d38",
-    borderRadius: ".2rem",
+    border: "0.085rem solid #5d5d5d38",
+    borderRadius: "0.578rem",
     boxShadow: "0 0 15px 0px #00000029",
   },
   formHolder: {
     backgroundColor: "#b2ebf22e",
-    padding: "3rem",
+    padding: "5.1rem",
     display: "flex",
     flexDirection: "column",
   },
@@ -45,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
   loginButton: {
     position: "relative",
-    minWidth: "8rem",
-    height: "2.4rem",
-    borderRadius: "20rem",
-    padding: "0 .8rem",
+    minWidth: "13.6rem",
+    height: "4.08rem",
+    borderRadius: "34rem",
+    padding: "0 1.36rem",
     transition: "all .1s ease-in-out",
 
     "&::before": {
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
       content: "''",
       backgroundColor: "#005082",
-      borderRadius: "20rem",
+      borderRadius: "34rem",
       zIndex: 1,
     },
 
@@ -72,24 +73,24 @@ const useStyles = makeStyles((theme) => ({
         height: "100%",
         content: "''",
         backgroundColor: "#00263e",
-        borderRadius: "20rem",
+        borderRadius: "57.8rem",
         zIndex: 1,
       },
     },
   },
   loginText: {
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     color: "#ffffff",
     fontWeight: 400,
     textTransform: "none",
-    letterSpacing: "0.06rem",
+    letterSpacing: "0.17rem",
   },
   createAccountButton: {
     position: "relative",
     width: "100%",
-    height: "2.7rem",
-    borderRadius: ".2rem",
-    padding: "0 .8rem",
+    height: "4.59rem",
+    borderRadius: "0.578rem",
+    padding: "0 1.36rem",
     transition: "all .2s ease-in-out",
 
     "&:active": {
@@ -102,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
       content: "''",
       backgroundColor: "#005082",
-      borderRadius: ".2rem",
+      borderRadius: "0.578rem",
       zIndex: -1,
     },
 
@@ -114,18 +115,18 @@ const useStyles = makeStyles((theme) => ({
         content: "''",
         backgroundColor: "#005082",
         opacity: ".85",
-        borderRadius: ".2rem",
+        borderRadius: "0.578rem",
         zIndex: -1,
       },
     },
   },
   createAccountText: {
-    fontSize: ".75rem",
+    fontSize: "1.27rem",
     color: "#ffffff",
     fontWeight: 600,
     lineHeight: "inherit",
     textTransform: "uppercase",
-    letterSpacing: "0.06rem",
+    letterSpacing: "0.17rem",
   },
 }));
 
@@ -134,41 +135,41 @@ const useInputFieldClasses = makeStyles((theme) => ({
     width: "100%",
     transition:
       "background-color 80ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 80ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-    borderRadius: ".5rem",
+    borderRadius: "0.85rem",
     position: "relative",
     backgroundColor: "#ffffff",
-    border: "0.05rem solid #e6e6e6",
+    border: "0.085rem solid #e6e6e6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: ".8rem 1.2rem",
+    padding: "1.36rem 2.04rem",
     boxSizing: "border-box",
   },
 
   focused: {
-    border: "0.05rem solid #aaa",
+    border: "0.085rem solid #aaa",
     outline: "none",
   },
 
   input: {
-    fontSize: ".95rem !important",
+    fontSize: "1.6rem !important",
     fontWeight: "500 !important",
-    letterSpacing: "0.01rem",
+    letterSpacing: "0.017rem",
     color: "#333",
     fontFamily: "system-ui, sans-serif",
-    wordSpacing: "0.02rem",
+    wordSpacing: "0.034rem",
     padding: "0",
-    lineHeight: "inherit",
+    lineHeight: "normal",
 
     "&::placeholder": {
       fontFamily: "system-ui, sans-serif",
       color: "#333",
-      fontSize: ".95rem !important",
+      fontSize: "1.6rem !important",
       fontWeight: "500 !important",
       opacity: ".5 !important",
-      letterSpacing: "0.01rem",
-      wordSpacing: "0.02rem",
-      lineHeight: "inherit",
+      letterSpacing: "0.017rem",
+      wordSpacing: "0.034rem",
+      lineHeight: "normal",
     },
   },
 }));
@@ -202,7 +203,6 @@ const SignUp = (props) => {
 
     setsignUpDataState(signUpData);
     setshowSignupForm(true);
-
     setName(response.profileObj.name);
     setEmail(response.profileObj.email);
     setprofilePicture(response.profileObj.imageUrl);
@@ -214,8 +214,6 @@ const SignUp = (props) => {
   };
 
   const handleCreateAccount = () => {
-    console.log(signUpDataState);
-
     db.collection("users")
       .get()
       .then((querySnapshot) => {
@@ -229,12 +227,14 @@ const SignUp = (props) => {
               Authentication.saveUserProfile(JSON.stringify(signUpDataState));
               setuserExists(false);
               setshowSignupForm(false);
+              goTo("/");
             } else {
               alert("user already exists");
               Authentication.save(signUpDataState.accessToken);
               Authentication.saveUserProfile(JSON.stringify(signUpDataState));
               setuserExists(true);
               setshowSignupForm(false);
+              goTo("/");
             }
           });
         } else {
@@ -243,8 +243,13 @@ const SignUp = (props) => {
           Authentication.saveUserProfile(JSON.stringify(signUpDataState));
           setuserExists(false);
           setshowSignupForm(false);
+          goTo("/");
         }
       });
+  };
+
+  const goTo = (place) => {
+    props.history.push(place);
   };
   //Text field handlers
   const handleChangeName = useCallback(
@@ -276,14 +281,14 @@ const SignUp = (props) => {
   }, []);
 
   return (
-    <Box padding="0 .8rem 0 .8rem" mt="4rem">
+    <Box padding="0 1.36rem 0 1.36rem" mt="11.56rem">
       <Box className={classes.SignupWrapper}>
         <Box className={classes.formHolder}>
           <Box>
             <Typography
               style={{
-                fontSize: "1.5rem",
-                lineHeight: "2rem",
+                fontSize: "2.55rem",
+                lineHeight: "3.4rem",
                 fontWeight: "700",
                 maxWidth: "70%",
                 letterSpacing: "0.015rem",
@@ -292,19 +297,19 @@ const SignUp = (props) => {
               Easily collect, track, and manage user feedback
             </Typography>
           </Box>
-          <Box mt="1.8rem">
+          <Box mt="5.1rem">
             <Typography
               style={{
-                fontSize: "1rem",
-                lineHeight: "1.6rem",
+                fontSize: "1.7rem",
+                lineHeight: "2.72rem",
                 fontWeight: "400",
-                letterSpacing: "0.03rem",
+                letterSpacing: "0.051rem",
               }}
             >
               Start your free 14-day trial
             </Typography>
           </Box>
-          <Box mt="2rem">
+          <Box mt="3.4rem">
             {!showSignupForm && (
               <GoogleLogin
                 clientId={
@@ -316,9 +321,9 @@ const SignUp = (props) => {
                     onClick={renderProps.onClick}
                   >
                     <Box style={{ zIndex: 2, display: "flex" }}>
-                      <CommonSvg type="google" width="1.4rem" />
+                      <CommonSvg type="google" width="2.38rem" />
                       <Typography
-                        style={{ marginLeft: ".6rem" }}
+                        style={{ marginLeft: "1rem" }}
                         className={classes.loginText}
                       >
                         Continue with Google
@@ -335,7 +340,7 @@ const SignUp = (props) => {
 
           <Grow in={showSignupForm} timeout={200}>
             <Box
-              mt="4rem"
+              mt="11.56rem"
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -351,14 +356,14 @@ const SignUp = (props) => {
                 <Avatar
                   src={profilePicture ? profilePicture : null}
                   style={{
-                    width: "3rem",
-                    height: "3rem",
+                    width: "5.1rem",
+                    height: "5.1rem",
                   }}
                 >
                   <Typography
                     id="randomTextColor"
                     style={{
-                      fontSize: "1.2rem",
+                      fontSize: "2.04rem",
                       fontWeight: 400,
                       textShadow:
                         "0px 2px 40px #00000020, 0px 2px 5px #00000030",
@@ -371,7 +376,7 @@ const SignUp = (props) => {
               <Box
                 alignSelf="flex-start"
                 width="100%"
-                style={{ transform: "translateY(-.25rem)" }}
+                style={{ transform: "translateY(-.0.425rem)" }}
               >
                 <Box>
                   <TextField
@@ -386,7 +391,7 @@ const SignUp = (props) => {
                     }}
                   />
                 </Box>
-                <Box mt=".8rem">
+                <Box mt="1.36rem">
                   <TextField
                     value={Email}
                     onChange={handleChangeEmail}
@@ -399,7 +404,7 @@ const SignUp = (props) => {
                     }}
                   />
                 </Box>
-                <Box mt=".8rem">
+                <Box mt="1.36rem">
                   <TextField
                     value={CompanyName}
                     onChange={handleChangeCompanyName}
@@ -413,7 +418,7 @@ const SignUp = (props) => {
                   />
                 </Box>
 
-                <Box mt="1.2rem">
+                <Box mt="2.04rem">
                   <Button
                     className={classes.createAccountButton}
                     onClick={() => handleCreateAccount()}
@@ -436,4 +441,4 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+export default React.memo(withRouter(SignUp));

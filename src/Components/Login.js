@@ -13,8 +13,8 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   loginButton: {
     position: "relative",
-    minWidth: "8rem",
-    height: "2.4rem",
+    minWidth: "13.6rem",
+    height: "4.08rem",
     borderRadius: "20rem",
     padding: "0 .8rem",
 
@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   loginText: {
-    fontSize: "1rem",
+    fontSize: "1.7rem",
     color: "#ffffff",
     fontWeight: 400,
     textTransform: "none",
-    letterSpacing: "0.06rem",
+    letterSpacing: "0.17rem",
   },
 }));
 const Login = (props) => {
@@ -41,12 +41,12 @@ const Login = (props) => {
   const classes = useStyles(theme);
 
   return (
-    <Box padding="2.4rem" className={classes.HeroWrapper}>
+    <Box padding="4.08rem" className={classes.HeroWrapper}>
       <Link to="signup">
         <Button className={classes.loginButton}>
-          <CommonSvg type="google" width="1.4rem" />
+          <CommonSvg type="google" width="2.38rem" />
           <Typography
-            style={{ marginLeft: ".6rem" }}
+            style={{ marginLeft: "1rem" }}
             className={classes.loginText}
           >
             Sign in Using Google
