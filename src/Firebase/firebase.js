@@ -30,7 +30,7 @@ class Firebase {
       .doc();
 
     batch.set(proRef, {
-      ...response.profileObj,
+      ...response,
     });
 
     return batch.commit();

@@ -258,8 +258,8 @@ const Navbar = (props) => {
                   <Typography className={classes.userName}>
                     {Authentication.loadUserProfile() &&
                     JSON.parse(Authentication.loadUserProfile()) &&
-                    JSON.parse(Authentication.loadUserProfile()).givenName
-                      ? JSON.parse(Authentication.loadUserProfile()).givenName
+                    JSON.parse(Authentication.loadUserProfile()).firstName
+                      ? JSON.parse(Authentication.loadUserProfile()).firstName
                       : null}
                   </Typography>
                 </Box>

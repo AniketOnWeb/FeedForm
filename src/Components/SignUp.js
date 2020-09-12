@@ -10,7 +10,7 @@ import {
   Grow,
 } from "@material-ui/core";
 import app from "firebase/app";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import CommonSvg from "../Common/CommonSvg";
 import signupBanner from "../../src/Assets/signupBanner.png";
 import Authentication from "../Utils/Authentication";
@@ -177,71 +177,103 @@ const SignUp = (props) => {
   const theme = useTheme();
   const classes = useStyles(theme);
   const inputFieldClasses = useInputFieldClasses(theme);
-
   const { userExists, setuserExists } = props;
   const db = app.firestore();
+
   const LoggedInUserData = Authentication.loadUserProfile();
   const LoggedInUserToken = Authentication.load();
+  const [showSignupForm, setshowSignupForm] = useState(false);
+  const [signUpDataState, setsignUpDataState] = useState({});
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [CompanyName, setCompanyName] = useState("");
+  const [profilePicture, setprofilePicture] = useState();
+
+  let signUpData = {};
 
   const handleSuccess = (response) => {
-    db.collection("users")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          if (String(response.googleId) !== String(doc.data().googleId)) {
-            console.log(response);
-            Firebase.register(response);
-            Authentication.save(response.accessToken);
-            Authentication.saveUserProfile(JSON.stringify(response.profileObj));
-            setuserExists(false);
-            setName(response.profileObj.name);
-            setEmail(response.profileObj.email);
-          } else {
-            Authentication.save(response.accessToken);
-            Authentication.saveUserProfile(JSON.stringify(response.profileObj));
-            setName(response.profileObj.name);
-            setEmail(response.profileObj.email);
-            setuserExists(true);
-          }
-        });
-      });
+    signUpData.firstName = response.profileObj.givenName;
+    signUpData.lastName = response.profileObj.familyName;
+    signUpData.imageUrl = response.profileObj.imageUrl;
+    signUpData.googleId = response.profileObj.googleId;
+    signUpData.email = response.profileObj.email;
+    signUpData.fullName = response.profileObj.name;
+    signUpData.accessToken = response.accessToken;
+
+    setsignUpDataState(signUpData);
+    setshowSignupForm(true);
+
+    setName(response.profileObj.name);
+    setEmail(response.profileObj.email);
+    setprofilePicture(response.profileObj.imageUrl);
   };
 
   const handleFailure = (error) => {
-    console.log(error);
+    console.log("error", error);
+    setshowSignupForm(false);
   };
 
-  //text field states and handlers
-  const [Name, setName] = useState(
-    LoggedInUserData && JSON.parse(LoggedInUserData).name
-      ? JSON.parse(LoggedInUserData).name
-      : ""
-  );
-  const [Email, setEmail] = useState(
-    LoggedInUserData && JSON.parse(LoggedInUserData).email
-      ? JSON.parse(LoggedInUserData).email
-      : ""
-  );
-  const [CompanyName, setCompanyName] = useState("");
+  const handleCreateAccount = () => {
+    console.log(signUpDataState);
 
+    db.collection("users")
+      .get()
+      .then((querySnapshot) => {
+        if (querySnapshot.docs.length && querySnapshot.docs.length > 0) {
+          querySnapshot.forEach((doc) => {
+            if (
+              String(signUpDataState.googleId) !== String(doc.data().googleId)
+            ) {
+              Firebase.register(signUpDataState);
+              Authentication.save(signUpDataState.accessToken);
+              Authentication.saveUserProfile(JSON.stringify(signUpDataState));
+              setuserExists(false);
+              setshowSignupForm(false);
+            } else {
+              alert("user already exists");
+              Authentication.save(signUpDataState.accessToken);
+              Authentication.saveUserProfile(JSON.stringify(signUpDataState));
+              setuserExists(true);
+              setshowSignupForm(false);
+            }
+          });
+        } else {
+          Firebase.register(signUpDataState);
+          Authentication.save(signUpDataState.accessToken);
+          Authentication.saveUserProfile(JSON.stringify(signUpDataState));
+          setuserExists(false);
+          setshowSignupForm(false);
+        }
+      });
+  };
+  //Text field handlers
   const handleChangeName = useCallback(
     (event) => {
       setName(event.target.value);
+      signUpDataState.fullName = event.target.value;
     },
     [Name]
   );
   const handleChangeEmail = useCallback(
     (event) => {
       setEmail(event.target.value);
+      signUpDataState.email = event.target.value;
     },
     [Email]
   );
   const handleChangeCompanyName = useCallback(
     (event) => {
       setCompanyName(event.target.value);
+      signUpDataState.companyName = event.target.value;
     },
     [CompanyName]
   );
+
+  useEffect(() => {
+    if (LoggedInUserData) {
+      setsignUpDataState(JSON.parse(LoggedInUserData));
+    }
+  }, []);
 
   return (
     <Box padding="0 .8rem 0 .8rem" mt="4rem">
@@ -273,7 +305,7 @@ const SignUp = (props) => {
             </Typography>
           </Box>
           <Box mt="2rem">
-            {!LoggedInUserToken && !userExists && (
+            {!showSignupForm && (
               <GoogleLogin
                 clientId={
                   "219769076647-u2hnrh6j63ciq4dqi3kssb8uqe7rknub.apps.googleusercontent.com"
@@ -301,7 +333,7 @@ const SignUp = (props) => {
             )}
           </Box>
 
-          <Grow in={LoggedInUserToken} timeout={200}>
+          <Grow in={showSignupForm} timeout={200}>
             <Box
               mt="4rem"
               display="flex"
@@ -317,13 +349,7 @@ const SignUp = (props) => {
                 zIndex="99"
               >
                 <Avatar
-                  src={
-                    Authentication.loadUserProfile() &&
-                    JSON.parse(Authentication.loadUserProfile()) &&
-                    JSON.parse(Authentication.loadUserProfile()).imageUrl
-                      ? JSON.parse(Authentication.loadUserProfile()).imageUrl
-                      : null
-                  }
+                  src={profilePicture ? profilePicture : null}
                   style={{
                     width: "3rem",
                     height: "3rem",
@@ -388,7 +414,10 @@ const SignUp = (props) => {
                 </Box>
 
                 <Box mt="1.2rem">
-                  <Button className={classes.createAccountButton}>
+                  <Button
+                    className={classes.createAccountButton}
+                    onClick={() => handleCreateAccount()}
+                  >
                     <Typography className={classes.createAccountText}>
                       Create free account
                     </Typography>
