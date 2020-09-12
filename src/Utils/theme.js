@@ -1,8 +1,8 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const colorPreset = {
-  primary: "#0f6ebe",
-  secondary: "#69cdff",
+  primary: "#4452FE",
+  secondary: "#02E4C0",
   elevation6: "#1f1f1f",
   elevation12: "#2d2d2d",
   elevation18: "#3c3c3c",
@@ -19,9 +19,10 @@ const colorPreset = {
   highEmphasis: "#E6E6E6",
   ExtrahighEmphasis: "#ffffff",
   mediumEmphasis: "#737373",
-  lowEmphasis: "#666666",
+  lowEmphasis: "#5C5C5C",
   patientPrimary: "#094e87",
-  baseDark1: "#2f2f2f",
+  baseDark1: "#181818",
+  baseDark2: "#112D57",
 
   //Elevations
   textElevation: "rgba(255, 255, 255, 0.4)",
@@ -84,6 +85,79 @@ const theme = createMuiTheme({
     elevation3: colorPreset.elevation3,
     elevation4: colorPreset.elevation4,
     elavationLess: colorPreset.elavationLess,
+  },
+
+  primaryButtonBlue: {
+    position: "relative",
+    width: "auto",
+    height: "6.5rem",
+    borderRadius: "0",
+    padding: "2rem 3.6rem",
+    transition: "all .1s ease-in-out",
+
+    "&::before": {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      content: "''",
+      backgroundColor: colorPreset.primary,
+      borderRadius: "0",
+      zIndex: -1,
+    },
+
+    "&:active": {
+      transform: "scale(.95)",
+    },
+  },
+  primaryButtonHollow: {
+    position: "relative",
+    borderRadius: "0",
+    padding: "2rem 3.6rem",
+    width: "auto",
+    height: "6.5rem",
+    transition: "all .4s ease",
+
+    "&::before": {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      content: "''",
+      backgroundColor: "transparent",
+      borderRadius: "0",
+      zIndex: -1,
+      border: ".05rem solid #ffffff",
+    },
+
+    "&:hover": {
+      "&::before": {
+        transition: "all .4s ease",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        content: "''",
+        backgroundColor: "#ffffff",
+        borderRadius: "0",
+        border: "transparent",
+        zIndex: -1,
+      },
+
+      "& > span": {
+        "& > p": {
+          color: "#000000 !important",
+        },
+      },
+    },
+
+    "&:active": {
+      transform: "scale(.95)",
+    },
+  },
+  buttonText: {
+    fontSize: "1.7rem",
+    fontWeight: "500",
+    color: "#ffffff",
+    letterSpacing: "0.02rem",
+    lineHeight: "2.5rem",
   },
 
   mediumTextDark12: {

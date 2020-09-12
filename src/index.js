@@ -18,6 +18,7 @@ const styles = (theme) => ({
     },
 
     body: {
+      backgroundColor: "#181818",
       overflow: "auto",
       fontFamily: "system-ui, sans-serif",
       "&::-webkit-scrollbar": {

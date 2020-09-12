@@ -340,7 +340,7 @@ const SignUp = (props) => {
 
           <Grow in={showSignupForm} timeout={200}>
             <Box
-              mt="11.56rem"
+              mt="5.1rem"
               display="flex"
               flexDirection="column"
               alignItems="center"

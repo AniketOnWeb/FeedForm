@@ -13,12 +13,14 @@ import CommonSvg from "./CommonSvg";
 import { withRouter, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  primaryButtonHollow: theme.primaryButtonHollow,
   navbarWrapper: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
     alignItems: "center",
+    height: "11.9rem",
   },
   brandName: {
     fontFamily: "Pacifico, cursive !important",
@@ -26,33 +28,37 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "5.1rem",
   },
   navbarOptions: {
-    fontWeight: 500,
-    color: "#080b26",
-    letterSpacing: "0.051rem",
+    fontWeight: "bold",
+    color: "#ffffff",
     cursor: "pointer",
-    lineHeight: "5.1rem",
-    fontSize: "1.6rem",
+    lineHeight: "1.7rem",
+    letterSpacing: "0.05rem",
+    fontSize: "1.4rem",
+    textTransform: "uppercase",
   },
   loginButton: {
     position: "relative",
-    width: "13.6rem",
-    height: "4.08rem",
-    borderRadius: ".578rem",
+    width: "13.9rem",
+    height: "5.2rem",
+    borderRadius: "0",
 
     "&::before": {
       position: "absolute",
       width: "100%",
       height: "100%",
       content: "''",
-      backgroundColor: "#005082",
-      borderRadius: ".578rem",
+      backgroundColor: "transparent",
+      borderRadius: "0",
       zIndex: -1,
+      border: ".05rem solid #ffffff",
     },
   },
   loginText: {
-    fontSize: "1.7rem",
+    lineHeight: "1.7rem",
+    letterSpacing: "0.05rem",
+    fontSize: "1.4rem",
     color: "#ffffff",
-    fontWeight: 600,
+    fontWeight: "bold",
     textTransform: "none",
     letterSpacing: "0.17rem",
   },
@@ -190,29 +196,20 @@ const Navbar = (props) => {
   const openSettingsDropDown = Boolean(SettingsDropDownAnchor);
   return (
     <>
-      <Box padding="1.7rem 3rem 0 3rem" className={classes.navbarWrapper}>
+      <Box padding="0 3rem 0 3rem" className={classes.navbarWrapper}>
         <Box display="flex" flexDirection="row" alignItems="center">
           <Box display="flex" flexDirection="row" alignItems="center">
-            <CommonSvg type="logo" width="2.72rem" />
-            <Box ml="1.36rem">
-              <Typography className={classes.brandName}>FeedForm</Typography>
+            <CommonSvg type="brand" width="4.2rem" height="4.5rem" />
+          </Box>
+        </Box>
+        <Box display="flex" flexDirection="row" alignItems="center" ml="6.8rem">
+          {NavbarLeftOptions.map((item, i) => (
+            <Box key={i} mr="3.5rem">
+              <Typography className={classes.navbarOptions}>
+                {item.name}
+              </Typography>
             </Box>
-          </Box>
-
-          <Box
-            display="flex"
-            flexDirection="row"
-            alignItems="center"
-            ml="6.8rem"
-          >
-            {NavbarLeftOptions.map((item, i) => (
-              <Box key={i} mr="2.89rem">
-                <Typography className={classes.navbarOptions}>
-                  {item.name}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
+          ))}
         </Box>
         <Box>
           {Authentication.loadUserProfile() ? (
@@ -275,7 +272,10 @@ const Navbar = (props) => {
             </Box>
           ) : (
             <Link to="/login">
-              <Button className={classes.loginButton}>
+              <Button
+                className={classes.primaryButtonHollow}
+                style={{ height: "5.2rem" }}
+              >
                 <Typography className={classes.loginText}>Login</Typography>
               </Button>
             </Link>

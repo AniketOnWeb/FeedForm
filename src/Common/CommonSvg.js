@@ -293,6 +293,60 @@ const CommonSvg = (props) => {
         />
       </g>
     </svg>
+  ) : type === "brand" ? (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 42 46"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0)">
+        <path
+          d="M32.0001 14.4474H17.7648V17.079H32.0001V14.4474Z"
+          fill="white"
+        />
+        <path
+          d="M32.0001 18.3948H21.6472V21.0264H32.0001V18.3948Z"
+          fill="white"
+        />
+        <path
+          d="M32.0001 27.6052H17.7648V30.2368H32.0001V27.6052Z"
+          fill="white"
+        />
+        <path
+          d="M32.0001 31.5526H21.6472V34.1842H32.0001V31.5526Z"
+          fill="white"
+        />
+        <path d="M10 10.5L10 35.5H12.5882L12.5882 10.5H10Z" fill="white" />
+        <path
+          d="M13.8824 10.5L13.8824 35.5H16.4706V10.5H13.8824Z"
+          fill="white"
+        />
+        <path d="M32 10.5H13.8824V13.1316H32V10.5Z" fill="white" />
+        <path d="M32 23.6579H13.8824V26.2894H32V23.6579Z" fill="white" />
+        <path d="M17.7648 27.6053V35.5H20.353V27.6053H17.7648Z" fill="white" />
+        <path
+          d="M17.7648 14.4474V22.3421H20.353V14.4474H17.7648Z"
+          fill="white"
+        />
+        <path
+          d="M21.6472 18.3948V22.3421H24.2354V18.3948H21.6472Z"
+          fill="white"
+        />
+        <path d="M21.6472 31.5526V35.5H24.2354V31.5526H21.6472Z" fill="white" />
+      </g>
+      <defs>
+        <clipPath id="clip0">
+          <rect
+            width="22"
+            height="25"
+            fill="white"
+            transform="translate(10 10.5)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
   ) : (
     ""
   );
