@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   codeEDitorWrapper: {
-    width: "34rem",
-    height: "23rem",
+    width: "90%",
     backgroundColor: theme.colorPreset.codeEDitorWrapper,
     borderRadius: ".8rem",
   },
@@ -82,7 +81,33 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "20rem",
     },
   },
+  codeEditorTExt: {
+    fontSize: "1.2rem",
+    fontWeight: "500",
+    color: "#55718d",
+    lineHeight: "2.4rem",
+    padding: "0 .6rem",
+    fontFamily: "Source Code Pro, sans-serif !important",
+    letterSpacing: "0",
+    opacity: ".8",
+  },
 }));
+
+const editorLabelList = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "~",
+  "~",
+  "~",
+  "~",
+  "~",
+  "~",
+  "~",
+];
 const HowToUse = (props) => {
   const theme = useTheme();
   const classes = useStyles(theme);
@@ -126,7 +151,45 @@ const HowToUse = (props) => {
             </Button>
           </Box>
         </Box>
-        <Box className={classes.codeEDitorWrapper}></Box>
+        <Box className={classes.codeEDitorWrapper}>
+          <Box display="flex" flexDirection="row">
+            <Box
+              minWidth="3.55rem"
+              width="fit-content"
+              display="flex"
+              justifyContent="space-evenly"
+              padding="1rem 0"
+              flexDirection="column"
+              alignItems="flex-end"
+              position="sticky"
+            >
+              {editorLabelList.map((item, i) => (
+                <Typography className={classes.codeEditorTExt} key={i}>
+                  {item}
+                </Typography>
+              ))}
+            </Box>
+
+            <Box padding="1rem 0">
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{ color: "#00d4ff" }}
+              >
+                {"<!--HTML-->"}
+              </Typography>
+
+              <Box>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff" }}
+                >
+                  <span></span>
+                  {`<script src="../src/index.js"></script>`}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
