@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
     letterSpacing: "0.06rem",
     lineHeight: "3.8rem",
-    maxWidth: "calc(100% - 20rem)",
+    maxWidth: "calc(100% - 16rem)",
     textAlign: "left",
   },
   brandSubTitle: {
@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   HeroWrapper: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
-    padding: "0 3rem",
+    padding: "0 3rem 0 6rem",
   },
 }));
 const Hero = (props) => {
@@ -152,14 +152,14 @@ const Hero = (props) => {
   // });
 
   return (
-    <Box className={classes.HeroWrapper} mt="8.5rem">
+    <Box className={classes.HeroWrapper} mt="12.5rem">
       <Box>
         <Typography className={classes.brandTitle}>
           Collect feedback from customers and teammates
         </Typography>
         <Typography
           className={classes.brandSubTitle}
-          style={{ maxWidth: "20rem" }}
+          style={{ maxWidth: "29rem" }}
         >
           Collect feedback with a quick 2 step widget addition.
         </Typography>
