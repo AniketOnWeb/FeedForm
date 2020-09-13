@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "100%",
     alignItems: "center",
-    height: "11.9rem",
+    padding: "1.2rem 3rem 0 3rem",
   },
   brandName: {
     fontFamily: "Pacifico, cursive !important",
@@ -28,12 +28,12 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "5.1rem",
   },
   navbarOptions: {
-    fontWeight: "bold",
-    color: "#ffffff",
     cursor: "pointer",
     lineHeight: "1.7rem",
-    letterSpacing: "0.05rem",
-    fontSize: "1.4rem",
+    letterSpacing: "0.1rem",
+    fontSize: "1.1rem",
+    color: "#ffffff",
+    fontWeight: "bold",
     textTransform: "uppercase",
   },
   loginButton: {
@@ -54,13 +54,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   loginText: {
+    cursor: "pointer",
     lineHeight: "1.7rem",
-    letterSpacing: "0.05rem",
-    fontSize: "1.4rem",
+    letterSpacing: "0.1rem",
+    fontSize: "1.1rem",
     color: "#ffffff",
     fontWeight: "bold",
-    textTransform: "none",
-    letterSpacing: "0.17rem",
+    textTransform: "uppercase",
   },
   userName: {
     opacity: 0.8,
@@ -196,7 +196,7 @@ const Navbar = (props) => {
   const openSettingsDropDown = Boolean(SettingsDropDownAnchor);
   return (
     <>
-      <Box padding="0 3rem 0 3rem" className={classes.navbarWrapper}>
+      <Box className={classes.navbarWrapper}>
         <Box display="flex" flexDirection="row" alignItems="center">
           <Box display="flex" flexDirection="row" alignItems="center">
             <CommonSvg type="brand" width="4.2rem" height="4.5rem" />
@@ -272,10 +272,7 @@ const Navbar = (props) => {
             </Box>
           ) : (
             <Link to="/login">
-              <Button
-                className={classes.primaryButtonHollow}
-                style={{ height: "5.2rem" }}
-              >
+              <Button className={classes.primaryButtonHollow}>
                 <Typography className={classes.loginText}>Login</Typography>
               </Button>
             </Link>

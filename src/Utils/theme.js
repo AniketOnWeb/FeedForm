@@ -90,9 +90,9 @@ const theme = createMuiTheme({
   primaryButtonBlue: {
     position: "relative",
     width: "auto",
-    height: "6.5rem",
+    // height: "6.5rem",
     borderRadius: "0",
-    padding: "2rem 3.6rem",
+    padding: "1rem 3.6rem",
     transition: "all .1s ease-in-out",
 
     "&::before": {
@@ -112,9 +112,9 @@ const theme = createMuiTheme({
   primaryButtonHollow: {
     position: "relative",
     borderRadius: "0",
-    padding: "2rem 3.6rem",
+    padding: "1rem 3.6rem",
     width: "auto",
-    height: "6.5rem",
+    // height: "6.5rem",
     transition: "all .4s ease",
 
     "&::before": {
