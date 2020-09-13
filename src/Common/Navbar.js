@@ -35,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
     fontWeight: "bold",
     textTransform: "uppercase",
+    transition: "all .1s ease-in-out",
+
+    "&:hover": {
+      color: theme.colorPreset.lowEmphasis,
+    },
   },
   loginButton: {
     position: "relative",

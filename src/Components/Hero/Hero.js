@@ -4,6 +4,7 @@ import {
   Typography,
   useTheme,
   Button,
+  fade,
 } from "@material-ui/core";
 import React from "react";
 
@@ -112,23 +113,27 @@ const useStyles = makeStyles((theme) => ({
       transformOrigin: "100% 0",
     },
 
-    // "&:hover": {
-    //   "&::before": {
-    //     borderColor: "red",
-    //     transform: "scale(.8)",
-    //   },
+    "&:hover": {
+      "&::before": {
+        borderColor: "red",
+        transform: "scale(.8)",
+      },
 
-    //   "&::after": {
-    //     borderColor: "red",
-    //     transform: "rotate(45deg)",
-    //     height: "120%",
-    //   },
-    // },
+      "&::after": {
+        borderColor: "red",
+        transform: "rotate(45deg)",
+        height: "120%",
+      },
+    },
   },
   HeroWrapper: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     padding: "0 3rem 0 6rem",
+  },
+  imagePlaceholder: {
+    width: "100%",
+    backgroundColor: fade("#202020", 1),
   },
 }));
 const Hero = (props) => {
@@ -174,6 +179,8 @@ const Hero = (props) => {
           </Box>
         </Box>
       </Box>
+
+      <Box className={classes.imagePlaceholder}>asasd</Box>
     </Box>
   );
 };

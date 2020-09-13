@@ -19,7 +19,7 @@ const colorPreset = {
   highEmphasis: "#E6E6E6",
   ExtrahighEmphasis: "#ffffff",
   mediumEmphasis: "#737373",
-  lowEmphasis: "#5C5C5C",
+  lowEmphasis: "#999999",
   patientPrimary: "#094e87",
   baseDark1: "#181818",
   baseDark2: "#112D57",
