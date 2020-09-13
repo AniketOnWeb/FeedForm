@@ -153,11 +153,11 @@ const theme = createMuiTheme({
     },
   },
   buttonText: {
-    fontSize: "1.7rem",
-    fontWeight: "500",
+    fontSize: "1.3rem",
+    fontWeight: "bold",
     color: "#ffffff",
-    letterSpacing: "0.02rem",
-    lineHeight: "2.5rem",
+    letterSpacing: "0.07rem",
+    lineHeight: "2.4rem",
   },
 
   mediumTextDark12: {

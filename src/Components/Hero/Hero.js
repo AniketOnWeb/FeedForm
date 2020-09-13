@@ -165,12 +165,7 @@ const Hero = (props) => {
         </Typography>
         <Box mt="4rem">
           <Button className={classes.primaryButtonBlue}>
-            <Typography
-              className={classes.buttonText}
-              style={{ textTransform: "none" }}
-            >
-              Get Started
-            </Typography>
+            <Typography className={classes.buttonText}>Get Started</Typography>
           </Button>
           <Box>
             <Typography className={classes.subText}>
