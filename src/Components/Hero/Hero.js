@@ -8,26 +8,26 @@ import {
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  HeroWrapper: {},
   primaryButtonBlue: theme.primaryButtonBlue,
   buttonText: theme.buttonText,
   primaryButtonHollow: theme.primaryButtonHollow,
   brandTitle: {
-    fontSize: "8rem",
+    fontSize: "3rem",
     fontWeight: "600 ",
     color: "#ffffff",
-    letterSpacing: "0.02rem",
-    lineHeight: "8.8rem",
+    letterSpacing: "0.06rem",
+    lineHeight: "3.8rem",
     maxWidth: "calc(100% - 20rem)",
-    textAlign: "center",
+    textAlign: "left",
   },
   brandSubTitle: {
-    fontSize: "2rem",
+    fontSize: "1.7rem",
     fontWeight: "400",
-    color: "#ffffff",
+    color: "#e6e6e6",
     letterSpacing: "0.02rem",
-    lineHeight: "3rem",
-    marginTop: "1.7rem",
+    lineHeight: "2.4rem",
+    marginTop: "2rem",
+    textAlign: "left",
   },
   loginButton: {
     position: "relative",
@@ -69,6 +69,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     textTransform: "none",
     letterSpacing: "0.17rem",
+  },
+  subText: {
+    fontSize: "1.2rem",
+    fontWeight: 500,
+    color: "#929aab",
+    letterSpacing: "0.01rem",
+    lineHeight: "1.7rem",
+    marginTop: ".5rem",
+    textAlign: "left",
   },
   buttonAnimatedArrow: {
     width: "1.2rem",
@@ -116,6 +125,11 @@ const useStyles = makeStyles((theme) => ({
     //   },
     // },
   },
+  HeroWrapper: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    padding: "0 3rem",
+  },
 }));
 const Hero = (props) => {
   const theme = useTheme();
@@ -139,30 +153,18 @@ const Hero = (props) => {
 
   return (
     <Box className={classes.HeroWrapper} mt="8.5rem">
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box>
         <Typography className={classes.brandTitle}>
           Collect feedback from customers and teammates
         </Typography>
         <Typography
           className={classes.brandSubTitle}
-          style={{ marginTop: "2.7rem", padding: "1rem" }}
+          style={{ maxWidth: "20rem" }}
         >
-          Collect feedback with a quick 2 step widget addition
+          Collect feedback with a quick 2 step widget addition.
         </Typography>
-        <Box mt="9.5rem">
+        <Box mt="4rem">
           <Button className={classes.primaryButtonBlue}>
-            <Typography
-              className={classes.buttonText}
-              style={{ textTransform: "none" }}
-            >
-              See Pricing Info
-            </Typography>
-          </Button>
-
-          <Button
-            className={classes.primaryButtonHollow}
-            style={{ marginLeft: "3.5rem" }}
-          >
             <Typography
               className={classes.buttonText}
               style={{ textTransform: "none" }}
@@ -170,6 +172,11 @@ const Hero = (props) => {
               Get Started
             </Typography>
           </Button>
+          <Box>
+            <Typography className={classes.subText}>
+              Free 14 day trial · No credit card required
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -186,3 +193,12 @@ export default Hero;
 //     <Box className={classes.buttonAnimatedArrow}></Box>
 //   </Box>
 // </Button>;
+
+//  <Button className={classes.primaryButtonBlue}>
+//    <Typography
+//      className={classes.buttonText}
+//      style={{ textTransform: "none" }}
+//    >
+//      See Pricing Info
+//    </Typography>
+//  </Button>;
