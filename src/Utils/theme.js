@@ -23,6 +23,8 @@ const colorPreset = {
   patientPrimary: "#094e87",
   baseDark1: "#181818",
   baseDark2: "#112D57",
+  codeEDitor: "#0c2e4e",
+  codeEDitorWrapper: "#0a2540",
 
   //Elevations
   textElevation: "rgba(255, 255, 255, 0.4)",
@@ -78,6 +80,10 @@ const theme = createMuiTheme({
     patientPrimary: colorPreset.patientPrimary,
 
     baseDark1: colorPreset.baseDark1,
+    baseDark2: colorPreset.baseDark2,
+    codeEDitorWrapper: colorPreset.codeEDitorWrapper,
+    codeEDitor: colorPreset.codeEDitor,
+
     //Elevations
     elevation0: colorPreset.elevation0,
     elevation1: colorPreset.elevation1,
@@ -90,7 +96,6 @@ const theme = createMuiTheme({
   primaryButtonBlue: {
     position: "relative",
     width: "auto",
-    // height: "6.5rem",
     borderRadius: "0",
     padding: "1rem 3.6rem",
     transition: "all .1s ease-in-out",
@@ -114,7 +119,6 @@ const theme = createMuiTheme({
     borderRadius: "0",
     padding: "1rem 3.6rem",
     width: "auto",
-    // height: "6.5rem",
     transition: "all .4s ease",
 
     "&::before": {

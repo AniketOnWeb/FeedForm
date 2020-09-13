@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import theme from "./Utils/theme";
+import HowToUse from "./Components/HowToUse";
 
 const App = () => {
   const matches1280 = useMediaQuery("(min-width:1280px)");
@@ -42,12 +43,8 @@ const App = () => {
               <Navbar userExists={userExists} setuserExists={setuserExists} />
               <Switch>
                 <Route exact path="/">
-                  <Box>
-                    <Hero
-                      userExists={userExists}
-                      setuserExists={setuserExists}
-                    />
-                  </Box>
+                  <Hero userExists={userExists} setuserExists={setuserExists} />
+                  <HowToUse />
                 </Route>
                 <Route path="/login/">
                   <Login
