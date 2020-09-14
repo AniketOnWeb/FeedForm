@@ -5,8 +5,9 @@ import {
   useTheme,
   Button,
   fade,
+  Fade,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   customButton: {
     position: "relative",
     width: "auto",
-    padding: ".6rem 2rem",
+    padding: ".3rem 1.2rem .6rem",
     transition: "all .1s ease-in-out",
     borderRadius: "20rem",
 
@@ -90,6 +91,51 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Source Code Pro, sans-serif !important",
     letterSpacing: "0",
     opacity: ".8",
+  },
+
+  commonAnimationStyle: {
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    borderRight: ".15rem solid transparent",
+  },
+  animationTest: {
+    animation: `$typing 2s steps(70, end), blink-caret .001s step-end 2000`,
+  },
+  animationTest2: {
+    animation: `$typing2 1.5s steps(70, end), blink-caret .001s step-end 1400`,
+    animationDelay: "2s",
+  },
+  animationTest3: {
+    animation: `$typing3 1s steps(70, end), blink-caret .001s step-end 1000`,
+    animationDelay: "3.5s",
+  },
+  animationTest4: {
+    animation: `$typing4 .8s steps(70, end), blink-caret .001s step-end 800`,
+    animationDelay: "4.5s",
+  },
+  animationTest5: {
+    animation: `$typing5 .5s steps(70, end), blink-caret .001s step-end 500`,
+    animationDelay: "5.3s",
+  },
+  animationTest6: {
+    animation: `$typing6 2s steps(70, end), blink-caret .001s step-end 1970`,
+    animationDelay: "5.8s",
+  },
+  animationTest7: {
+    animation: `$typing7 .8s steps(70, end), blink-caret .001s step-end 800`,
+    animationDelay: "7.8s",
+  },
+  animationTest8: {
+    animation: `$typing8 1s steps(70, end), blink-caret .001s step-end 1000`,
+    animationDelay: "8.6s",
+  },
+  animationTest9: {
+    animation: `$typing9 .8s steps(70, end), blink-caret .001s step-end 800`,
+    animationDelay: "9.6s",
+  },
+  animationTest10: {
+    animation: `$typing7 .9s steps(70, end), blink-caret .65s step-end infinite`,
+    animationDelay: "10.4s",
   },
   editorFotter: {
     width: "100%",
@@ -121,6 +167,110 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateX(95%)",
     },
   },
+  codeStatusBarInsert: {
+    backgroundColor: "#ffd96a",
+    padding: "0 .5rem",
+    position: "relative",
+    width: "fit-content",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+
+    "&::before": {
+      position: "absolute",
+      width: "0",
+      height: "0",
+      top: 0,
+      right: 0,
+      content: "''",
+      borderLeft: ".9rem solid #ffd96a",
+      borderBottom: "1.25rem solid transparent",
+      borderRight: "0 solid transparent",
+      borderTop: "1.25rem solid transparent",
+      transform: "translateX(95%)",
+    },
+  },
+
+  "@keyframes typing": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "100%",
+    },
+  },
+  "@keyframes typing2": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "200px",
+    },
+  },
+  "@keyframes typing3": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "120px",
+    },
+  },
+  "@keyframes typing4": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "70px",
+    },
+  },
+  "@keyframes typing5": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "80px",
+    },
+  },
+  "@keyframes typing6": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "300px",
+    },
+  },
+  "@keyframes typing7": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "77px",
+    },
+  },
+  "@keyframes typing8": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "202px",
+    },
+  },
+  "@keyframes typing9": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "130px",
+    },
+  },
+  "@keyframes typing10": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "70px",
+    },
+  },
 }));
 
 const editorLabelList = [
@@ -130,18 +280,24 @@ const editorLabelList = [
   "4",
   "5",
   "6",
-  "~",
-  "~",
-  "~",
-  "~",
-  "~",
-  "~",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
   "~",
 ];
 const HowToUse = (props) => {
   const theme = useTheme();
   const classes = useStyles(theme);
 
+  const [TypeWriterFinished, setTypeWriterFinished] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setTypeWriterFinished(true);
+    }, 11300);
+  }, []);
   return (
     <Box className={classes.Wrapper} mt="8rem">
       <Box
@@ -173,12 +329,34 @@ const HowToUse = (props) => {
               className={clsx(classes.primaryButtonBlue, classes.customButton)}
             >
               <Typography
-                style={{ textTransform: "none", color: "#0a2540" }}
+                style={{
+                  textTransform: "none",
+                  color: "#0a2540",
+                  fontWeight: 600,
+                }}
                 className={classes.buttonText}
               >
-                Read docs
+                Generate project Id
               </Typography>
             </Button>
+          </Box>
+          <Box
+            mt="3rem"
+            style={{ borderLeft: ".2rem solid #ffd96a", paddingLeft: "2.1rem" }}
+          >
+            <Typography
+              className={classes.subDetailsText}
+              style={{ maxWidth: "unset" }}
+            >
+              Copy and paste this in your page body
+            </Typography>
+            <Typography
+              className={classes.subDetailsText}
+              style={{ maxWidth: "unset" }}
+            >
+              add data-feedform-app on the element you want to add click event
+              listener
+            </Typography>
           </Box>
         </Box>
         <Box className={classes.codeEDitorWrapper}>
@@ -200,14 +378,20 @@ const HowToUse = (props) => {
               ))}
             </Box>
 
-            <Box padding="1rem 0">
+            <Box padding="1rem 0" overflow="hidden">
               <Typography
                 className={classes.codeEditorTExt}
                 style={{ color: "#00d4ff" }}
               >
                 {"<!--HTML-->"}
               </Typography>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff", paddingRight: "0" }}
@@ -215,7 +399,7 @@ const HowToUse = (props) => {
                   {"<"}
                 </Typography>
                 <Typography
-                  className={classes.codeEditorTExt}
+                  className={clsx(classes.codeEditorTExt)}
                   style={{ color: "#F56565", padding: "0" }}
                 >
                   {"script"}
@@ -233,7 +417,7 @@ const HowToUse = (props) => {
                   {"="}
                 </Typography>
                 <Typography
-                  className={classes.codeEditorTExt}
+                  className={clsx(classes.codeEditorTExt)}
                   style={{ color: "#ffa956", padding: "0" }}
                 >
                   {`"https://www.feedform.me/test.js?pid=xxxxx"`}
@@ -269,7 +453,14 @@ const HowToUse = (props) => {
                   {">"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                width="fit-content"
+                className={clsx(
+                  classes.animationTest2,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff", paddingRight: "0" }}
@@ -295,7 +486,13 @@ const HowToUse = (props) => {
                   {">"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest3,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#ffffff", padding: "0 2rem" }}
@@ -303,7 +500,13 @@ const HowToUse = (props) => {
                   Give Feedback
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest4,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff", paddingRight: "0" }}
@@ -335,7 +538,13 @@ const HowToUse = (props) => {
                   {";"}
                 </Typography>
               </Box>
-              <Box mt="2.4rem">
+              <Box
+                mt="2.4rem"
+                className={clsx(
+                  classes.animationTest5,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{
@@ -345,7 +554,13 @@ const HowToUse = (props) => {
                   {"<!--React-->"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest6,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#F56565" }}
@@ -383,7 +598,13 @@ const HowToUse = (props) => {
                   {"'react-feedform'"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest7,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff", paddingRight: "0" }}
@@ -397,7 +618,13 @@ const HowToUse = (props) => {
                   {"FeedForm"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest8,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#ffa956", padding: "0 0 0 2rem" }}
@@ -429,7 +656,13 @@ const HowToUse = (props) => {
                   {"}"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                className={clsx(
+                  classes.animationTest9,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#ffa956", padding: "0 0 0 2rem" }}
@@ -461,7 +694,15 @@ const HowToUse = (props) => {
                   {"}"}
                 </Typography>
               </Box>
-              <Box display="flex">
+              <Box
+                display="flex"
+                width="9.5rem"
+                padding="0"
+                className={clsx(
+                  classes.animationTest10,
+                  classes.commonAnimationStyle
+                )}
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff", paddingRight: "0" }}
@@ -501,9 +742,16 @@ const HowToUse = (props) => {
             alignItems="center"
             justifyContent="space-between"
             flexDirection="row"
+            overflow="hidden"
           >
             <Box display="flex" alignItems="center" flexDirection="row">
-              <Box className={classes.codeStatusBar}>
+              <Box
+                className={
+                  TypeWriterFinished
+                    ? classes.codeStatusBar
+                    : classes.codeStatusBarInsert
+                }
+              >
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{
@@ -512,9 +760,10 @@ const HowToUse = (props) => {
                     fontWeight: "600",
                   }}
                 >
-                  NORMAL
+                  {TypeWriterFinished ? "NORMAL" : "INSERT"}
                 </Typography>
               </Box>
+
               <Box ml="1.5rem">
                 <Typography
                   className={classes.codeEditorTExt}
@@ -526,7 +775,70 @@ const HowToUse = (props) => {
                 >
                   server.js
                 </Typography>
-              </Box>{" "}
+              </Box>
+            </Box>
+            <Box display="flex" flexDirection="row">
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  paddingRight: "0",
+                  fontWeight: "600",
+                }}
+              >
+                100%
+              </Typography>
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  paddingRight: "0",
+                  fontWeight: "600",
+                }}
+              >
+                ☰
+              </Typography>
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  paddingRight: "0",
+                  paddingLeft: "1.5rem",
+                  fontWeight: "600",
+                }}
+              >
+                12/12
+              </Typography>
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  paddingRight: "0",
+                  fontWeight: "600",
+                }}
+              >
+                ln
+              </Typography>
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  paddingLeft: "1.5rem",
+                  fontWeight: "600",
+                }}
+              >
+                :
+              </Typography>
+              <Typography
+                className={classes.codeEditorTExt}
+                style={{
+                  color: "#55718d",
+                  fontWeight: "600",
+                  paddingRight: "1.6rem",
+                }}
+              >
+                4
+              </Typography>
             </Box>
           </Box>
         </Box>
@@ -536,3 +848,4 @@ const HowToUse = (props) => {
 };
 
 export default HowToUse;
+// ☰

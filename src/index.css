@@ -43,3 +43,30 @@
 p {
   font-family: system-ui, sans-serif !important;
 }
+
+/* .animationTest {
+  animation: typing 3.5s steps(60, end), blink-caret 0.75s step-end 8;
+  border-right: 0.1rem solid transparent;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+*/
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: #e6e6e6;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
