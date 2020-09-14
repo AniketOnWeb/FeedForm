@@ -91,6 +91,36 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "0",
     opacity: ".8",
   },
+  editorFotter: {
+    width: "100%",
+    height: "2.4rem",
+    borderBottomRightRadius: ".8rem",
+    borderBottomLeftRadius: ".8rem",
+    backgroundColor: theme.colorPreset.codeEDitor,
+  },
+  codeStatusBar: {
+    backgroundColor: "#8095ff",
+    padding: "0 .5rem",
+    position: "relative",
+    width: "fit-content",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+
+    "&::before": {
+      position: "absolute",
+      width: "0",
+      height: "0",
+      top: 0,
+      right: 0,
+      content: "''",
+      borderLeft: ".9rem solid #8095ff",
+      borderBottom: "1.25rem solid transparent",
+      borderRight: "0 solid transparent",
+      borderTop: "1.25rem solid transparent",
+      transform: "translateX(95%)",
+    },
+  },
 }));
 
 const editorLabelList = [
@@ -177,16 +207,326 @@ const HowToUse = (props) => {
               >
                 {"<!--HTML-->"}
               </Typography>
-
-              <Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"script"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"src"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"="}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffa956", padding: "0" }}
+                >
+                  {`"https://www.feedform.me/test.js?pid=xxxxx"`}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {">"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"/"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"script"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingLeft: "0" }}
+                >
+                  {">"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"button"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffa956", paddingRight: "0" }}
+                >
+                  {"data-feedform-app"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {">"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffffff", padding: "0 2rem" }}
+                >
+                  Give Feedback
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"/"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"button"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {">"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {";"}
+                </Typography>
+              </Box>
+              <Box mt="2.4rem">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{
+                    color: "#00d4ff",
+                  }}
+                >
+                  {"<!--React-->"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565" }}
+                >
+                  {"import"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"{"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffa956", paddingRight: "0" }}
+                >
+                  {"FeedForm"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"}"}
+                </Typography>
                 <Typography
                   className={classes.codeEditorTExt}
                   style={{ color: "#00d4ff" }}
                 >
-                  <span></span>
-                  {`<script src="../src/index.js"></script>`}
+                  {"from"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"'react-feedform'"}
                 </Typography>
               </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"FeedForm"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffa956", padding: "0 0 0 2rem" }}
+                >
+                  {"triggerComponent"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"="}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"{"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffffff", padding: "0" }}
+                >
+                  {"Button"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"}"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffa956", padding: "0 0 0 2rem" }}
+                >
+                  {"projectId"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"="}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"{"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#ffffff", padding: "0" }}
+                >
+                  {"..."}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"}"}
+                </Typography>
+              </Box>
+              <Box display="flex">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", paddingRight: "0" }}
+                >
+                  {"<"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {"/"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#F56565", padding: "0" }}
+                >
+                  {"FeedForm"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {">"}
+                </Typography>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{ color: "#00d4ff", padding: "0" }}
+                >
+                  {";"}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            className={classes.editorFotter}
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            flexDirection="row"
+          >
+            <Box display="flex" alignItems="center" flexDirection="row">
+              <Box className={classes.codeStatusBar}>
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{
+                    color: "#06182c",
+                    paddingRight: "0",
+                    fontWeight: "600",
+                  }}
+                >
+                  NORMAL
+                </Typography>
+              </Box>
+              <Box ml="1.5rem">
+                <Typography
+                  className={classes.codeEditorTExt}
+                  style={{
+                    color: "#8095ff",
+                    paddingRight: "0",
+                    fontWeight: "600",
+                  }}
+                >
+                  server.js
+                </Typography>
+              </Box>{" "}
             </Box>
           </Box>
         </Box>
