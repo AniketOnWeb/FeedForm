@@ -104,38 +104,47 @@ const useStyles = makeStyles((theme) => ({
   animationTest2: {
     animation: `$typing2 1.5s steps(70, end), blink-caret .001s step-end 1400`,
     animationDelay: "2s",
+    opacity: "0",
   },
   animationTest3: {
     animation: `$typing3 1s steps(70, end), blink-caret .001s step-end 1000`,
     animationDelay: "3.5s",
+    opacity: "0",
   },
   animationTest4: {
     animation: `$typing4 .8s steps(70, end), blink-caret .001s step-end 800`,
     animationDelay: "4.5s",
+    opacity: "0",
   },
   animationTest5: {
     animation: `$typing5 .5s steps(70, end), blink-caret .001s step-end 500`,
     animationDelay: "5.3s",
+    opacity: "0",
   },
   animationTest6: {
     animation: `$typing6 2s steps(70, end), blink-caret .001s step-end 1970`,
     animationDelay: "5.8s",
+    opacity: "0",
   },
   animationTest7: {
     animation: `$typing7 .8s steps(70, end), blink-caret .001s step-end 800`,
     animationDelay: "7.8s",
+    opacity: "0",
   },
   animationTest8: {
     animation: `$typing8 1s steps(70, end), blink-caret .001s step-end 1000`,
     animationDelay: "8.6s",
+    opacity: "0",
   },
   animationTest9: {
     animation: `$typing9 .8s steps(70, end), blink-caret .001s step-end 800`,
     animationDelay: "9.6s",
+    opacity: "0",
   },
   animationTest10: {
     animation: `$typing7 .9s steps(70, end), blink-caret .65s step-end infinite`,
     animationDelay: "10.4s",
+    opacity: "0",
   },
   editorFotter: {
     width: "100%",
@@ -293,11 +302,71 @@ const HowToUse = (props) => {
   const classes = useStyles(theme);
 
   const [TypeWriterFinished, setTypeWriterFinished] = useState(false);
+  const [lineCount, setlineCount] = useState(2);
+
   useEffect(() => {
     setTimeout(() => {
       setTypeWriterFinished(true);
     }, 11300);
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      let lineFade1 = document.getElementById("lineFade1");
+      lineFade1.style.opacity = 1;
+      setlineCount(3);
+    }, 2000);
+    setTimeout(() => {
+      let lineFade2 = document.getElementById("lineFade2");
+      lineFade2.style.opacity = 1;
+      setlineCount(4);
+    }, 3500);
+    setTimeout(() => {
+      let lineFade3 = document.getElementById("lineFade3");
+      lineFade3.style.opacity = 1;
+      setlineCount(5);
+    }, 4500);
+    setTimeout(() => {
+      let lineFade4 = document.getElementById("lineFade4");
+      lineFade4.style.opacity = 1;
+      setlineCount(7);
+    }, 5300);
+    setTimeout(() => {
+      let lineFade5 = document.getElementById("lineFade5");
+      lineFade5.style.opacity = 1;
+      setlineCount(8);
+    }, 5800);
+    setTimeout(() => {
+      let lineFade6 = document.getElementById("lineFade6");
+      lineFade6.style.opacity = 1;
+      setlineCount(9);
+    }, 7800);
+    setTimeout(() => {
+      let lineFade7 = document.getElementById("lineFade7");
+      lineFade7.style.opacity = 1;
+      setlineCount(10);
+    }, 8600);
+    setTimeout(() => {
+      let lineFade8 = document.getElementById("lineFade8");
+      lineFade8.style.opacity = 1;
+      setlineCount(11);
+    }, 9600);
+    setTimeout(() => {
+      let lineFade9 = document.getElementById("lineFade9");
+      lineFade9.style.opacity = 1;
+      setlineCount(12);
+    }, 10400);
+  }, []);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setlineCount((lineCount) => lineCount + 1);
+  //   }, 1000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
   return (
     <Box className={classes.Wrapper} mt="8rem">
       <Box
@@ -460,6 +529,7 @@ const HowToUse = (props) => {
                   classes.animationTest2,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade1"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -492,6 +562,7 @@ const HowToUse = (props) => {
                   classes.animationTest3,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade2"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -506,6 +577,7 @@ const HowToUse = (props) => {
                   classes.animationTest4,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade3"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -544,6 +616,7 @@ const HowToUse = (props) => {
                   classes.animationTest5,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade4"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -560,6 +633,7 @@ const HowToUse = (props) => {
                   classes.animationTest6,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade5"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -604,6 +678,7 @@ const HowToUse = (props) => {
                   classes.animationTest7,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade6"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -624,6 +699,7 @@ const HowToUse = (props) => {
                   classes.animationTest8,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade7"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -662,6 +738,7 @@ const HowToUse = (props) => {
                   classes.animationTest9,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade8"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -702,6 +779,7 @@ const HowToUse = (props) => {
                   classes.animationTest10,
                   classes.commonAnimationStyle
                 )}
+                id="lineFade9"
               >
                 <Typography
                   className={classes.codeEditorTExt}
@@ -807,7 +885,7 @@ const HowToUse = (props) => {
                   fontWeight: "600",
                 }}
               >
-                12/12
+                {lineCount}/12
               </Typography>
               <Typography
                 className={classes.codeEditorTExt}
