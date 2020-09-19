@@ -12,15 +12,7 @@ const useStyles = makeStyles((theme) => ({
   primaryButtonBlue: theme.primaryButtonBlue,
   buttonText: theme.buttonText,
   primaryButtonHollow: theme.primaryButtonHollow,
-  brandTitle: {
-    fontSize: "3rem",
-    fontWeight: "600 ",
-    color: "#ffffff",
-    letterSpacing: "0.06rem",
-    lineHeight: "3.8rem",
-    maxWidth: "calc(100% - 16rem)",
-    textAlign: "left",
-  },
+  brandTitle: theme.brandTitle,
   brandSubTitle: {
     fontSize: "1.7rem",
     fontWeight: "400",
@@ -159,7 +151,13 @@ const Hero = (props) => {
   return (
     <Box className={classes.HeroWrapper} mt="12.5rem">
       <Box>
-        <Typography className={classes.brandTitle}>
+        <Typography
+          className={classes.brandTitle}
+          style={{
+            maxWidth: "calc(100% - 16rem)",
+            textAlign: "left",
+          }}
+        >
           Collect feedback from customers and teammates
         </Typography>
         <Typography

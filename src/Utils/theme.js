@@ -156,6 +156,14 @@ const theme = createMuiTheme({
       transform: "scale(.95)",
     },
   },
+
+  brandTitle: {
+    fontSize: "3rem",
+    fontWeight: "600 ",
+    color: "#ffffff",
+    letterSpacing: "0.06rem",
+    lineHeight: "3.8rem",
+  },
   buttonText: {
     fontSize: "1.3rem",
     fontWeight: "bold",
