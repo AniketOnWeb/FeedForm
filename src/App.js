@@ -8,6 +8,7 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import theme from "./Utils/theme";
 import HowToUse from "./Components/HowToUse";
+import CodeEditorSection from "./Components/CodeEditorSection";
 
 const App = () => {
   const matches1280 = useMediaQuery("(min-width:1280px)");
@@ -44,6 +45,7 @@ const App = () => {
               <Switch>
                 <Route exact path="/">
                   <Hero userExists={userExists} setuserExists={setuserExists} />
+                  <CodeEditorSection />
                   <HowToUse />
                 </Route>
                 <Route path="/login/">
